@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('novels', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('slug');
+            $table->string('description');
+            $table->string('image');
+            $table->string('creator');
+            $table->foreignId('admin_id');
+            $table->foreignId('genre_id');
             $table->timestamps();
         });
     }

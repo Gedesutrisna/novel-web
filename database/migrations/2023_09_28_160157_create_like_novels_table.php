@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('like_novels', function (Blueprint $table) {
             $table->id();
+            $table->integer('like');
+            $table->foreignId('user_id');
+            $table->foreignId('novel_id');
             $table->timestamps();
         });
     }

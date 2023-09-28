@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('dislike_like_reviews', function (Blueprint $table) {
             $table->id();
+            $table->integer('like');
+            $table->integer('dislike');
+            $table->foreignId('user_id');
+            $table->foreignId('review_id');
             $table->timestamps();
         });
     }
