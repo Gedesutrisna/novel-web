@@ -17,9 +17,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/product.html">
+                        <a class="nav-link" href="/novel">
                             <img class="me-2" src="/assets/product-i.svg" alt="">
-                            Product
+                            Novel
                         </a>
                     </li>
                     <li class="nav-item">
