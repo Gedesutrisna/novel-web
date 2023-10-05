@@ -76,7 +76,7 @@
                             <div class="mb-3">
                                 <label for="genre" class="form-label">Genre</label>
                                 <select name="genre_id" id="">
-                                    @foreach ($novel->genre as $genre)
+                                    @foreach ($genres as $genre)
                                     <option value="{{ $genre->id }}">{{ $genre->name }}</option>
                                     @endforeach
                                 </select>
