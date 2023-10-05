@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('image');
             $table->string('creator');
+            $table->string('year_published');
             $table->foreignId('admin_id');
             $table->foreignId('genre_id');
             $table->timestamps();

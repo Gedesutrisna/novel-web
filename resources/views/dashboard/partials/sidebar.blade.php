@@ -5,38 +5,29 @@
                     </a>
                 <ul class="nav flex-column gap-3">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/index.html">
-                            <img class="me-2" src="/assets/home-i-active.svg" alt="">
-                            Dashboard
-                        </a>
+                        <a class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}" href="/dashboard">
+                          <img class="me-2" src="{{ request()->is('dashboard') ? '/assets/assets/home-i-active.svg' : '/assets/assets/home-i.svg' }}" alt="">
+                          Dashboard
+                      </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="order.html">
-                            <img class="me-2" src="/assets/order-i.svg" alt="">
-                            Order
-                        </a>
+                        <a class="nav-link {{ request()->is('dashboard/novel') ? 'active' : '' }}" href="/dashboard/novel">
+                          <img class="me-2" src="{{ request()->is('dashboard/novel') ? '/assets/assets/home-i-active.svg' : '/assets/assets/home-i.svg' }}" alt="">
+                          Novel
+                      </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/product.html">
-                            <img class="me-2" src="/assets/product-i.svg" alt="">
-                            Product
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/promo.html">
-                            <img class="me-2" src="/assets/promo-i.svg" alt="">
-                            Promo
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/component.html">
-                            <img class="me-2" src="/assets/component-i.svg" alt="">
-                            Component
-                        </a>
+                        <a class="nav-link {{ request()->is('dashboard/genre') ? 'active' : '' }}" href="/dashboard/genre">
+                          <img class="me-2" src="{{ request()->is('dashboard/genre') ? '/assets/assets/home-i-active.svg' : '/assets/assets/home-i.svg' }}" alt="">
+                          Genre
+                      </a>
                     </li>
                 </ul>
-                <a href="/" class="text-decoration-none mt-auto mx-auto">
-                    <h1 class="nav-link"><img src="/assets/logout-i.svg" alt=""> Log Out</h1>
-                </a>
+                <form class="mt-auto mx-auto" action="/logout" method="POST">
+                    @csrf
+                    <button class="mt-auto mx-auto border-0 bttn" type="submit">
+                        <h1 class="nav-link"><img src="/assets/assets/logout-i.svg" alt=""> Log Out</h1>
+                    </button>  
+                </form>
                 </div>
             </nav>
