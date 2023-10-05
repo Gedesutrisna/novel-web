@@ -11,9 +11,9 @@ class NovelController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function novel()
     {
-        //
+        return view('dashboard.index');
     }
 
     /**
