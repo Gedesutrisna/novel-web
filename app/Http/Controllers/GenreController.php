@@ -3,64 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use Illuminate\Routing\Controller;
 use App\Http\Requests\StoreGenreRequest;
 use App\Http\Requests\UpdateGenreRequest;
+use Illuminate\Support\Facades\Auth;
 
 class GenreController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return view('dashboard.genre.index');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreGenreRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        $validatedData['admin_id'] = Auth::guard('admin')->user()->id(); 
+        Genre::create($validatedData);
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Genre $genre)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Genre $genre)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateGenreRequest $request, Genre $genre)
     {
-        //
+        $validatedData = $request->validated();
+        $validatedData['admin_id'] = Auth::guard('admin')->user()->id(); 
+        Genre::updated($validatedData);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+        return back()->with('success');
     }
 }
