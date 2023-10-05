@@ -16,7 +16,7 @@
                 <img src="/assets/profile-main.svg" alt="">
             </div>
             <div class="">
-                <h1 class="name">{{ auth()->guard('admin')->user()->name }}</h1>
+                
                 <p class="job">Admin</p>
             </div>
         </div>

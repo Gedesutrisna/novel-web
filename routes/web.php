@@ -22,3 +22,5 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:admin'], function (
 }); 
 
 Route::get('/novel', [NovelController::class,'novel']);
+Route::post('/novel/createdata', [NovelController::class,'createdata']);
+Route::post('/novel/delete', [NovelController::class,'delete']);

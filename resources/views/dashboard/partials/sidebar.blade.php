@@ -11,7 +11,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('dashboard/novel') ? 'active' : '' }}" href="/dashboard/novel">
+                        <a class="nav-link {{ request()->is('dashboard/novel') ? 'active' : '' }}" href="/novel">
                           <img class="me-2" src="{{ request()->is('dashboard/novel') ? '/assets/assets/home-i-active.svg' : '/assets/assets/home-i.svg' }}" alt="">
                           Novel
                       </a>

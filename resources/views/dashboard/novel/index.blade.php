@@ -37,6 +37,9 @@
                           <h5 class="modal-title" id="exampleModalLabel">Edit Data Novel</h5>
                         </div>
                         <div class="modal-body">
+                          
+
+                        <!-- FORM EDIT -->
                           <form method="POST" action="/dashboard/novels/{{ $novel->slug }}"  enctype="multipart/form-data">
                             @method('put')
                             @csrf
@@ -156,49 +159,9 @@
         </div>
     </div>
     
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Create Data Room Category</h5>
-        </div>
-        <div class="modal-body">
-          <form method="POST" action="/dashboard/categories" enctype="multipart/form-data">
-            @csrf
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-              required autofocus value="{{ old('name') }}">
-              @error('name')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-              @enderror
-            </div>
-            <div class="mb-3">
-                <input type="hidden" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
-                required value="{{ old('slug') }}">
-                @error('slug')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                @enderror
-              </div>
-            <div class="button d-flex justify-content-between">
-
-              <button type="button" class="main-btn" data-bs-dismiss="modal"><i class="bi bi-x"></i></button>
-              <button type="submit" class="main-btn active">Create New</button>
-              </div>
-          </form>
-        </div>
- </div>
-     </div>
-   </div>
- </div>
 
    <!-- Modal -->
-   <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -220,7 +183,7 @@
               <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
                 <input type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description"
-                required autofocus value="{{ old('description', $novel->description) }}">
+                required autofocus value="{{ old('description') }}">
                 @error('description')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -240,7 +203,7 @@
             <div class="mb-3">
                 <label for="genre" class="form-label">Genre</label>
                 <select name="genre_id" id="">
-                    @foreach ($novel->genre as $genre)
+                    @foreach ($genres as $genre)
                     <option value="{{ $genre->id }}">{{ $genre->name }}</option>
                     @endforeach
                 </select>

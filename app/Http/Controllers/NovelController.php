@@ -2,12 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
+use App\Models\Novel;
 use Illuminate\Http\Request;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Routing\Controller;
 
 class NovelController extends Controller
 {
     public function novel(){
-        return view('dashboard.novel.index');
+        $novels = Novel::all();
+        $genres = Genre:: all();
+        return view('dashboard.novel.index', compact('novels', 'genres'));
+    }
+
+    public function createdata(Request $request){
+        $novels = Novel::create($request->all());
+    }
+
+    public function delete($id){
+        $novels = Novel::find($id);
+        $novels->delete();
+        return redirect('dashborad.novel.index');
     }
 }
