@@ -29,5 +29,18 @@
         </div>
     </div>
 </body>
+{{-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                language: {
+                    search: '', // Ganti ikon search dengan Bootstrap Icon
+                    lengthMenu: '_MENU_', // Teks untuk menampilkan jumlah data per halaman
+                }
+            });
+        });
+</script> --}}
 <script src="/js/script.js"></script>
 </html>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\NovelController;
 use App\Http\Controllers\DashboardController;
 
@@ -21,6 +22,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:admin'], function (
     Route::get('/', [DashboardController::class,'index']);
 }); 
 
-Route::get('/novel', [NovelController::class,'novel']);
-Route::post('/novel/createdata', [NovelController::class,'createdata']);
-Route::post('/novel/delete', [NovelController::class,'delete']);
+Route::get('/dashboard/novel', [NovelController::class,'novel']);
+Route::post('/dashboard/novel/createdata', [NovelController::class,'createdata']);
+Route::post('/dashboard/novel/delete', [NovelController::class,'delete']);
+
+Route::get('/dashboard/genre', [GenreController::class,'genre']);
