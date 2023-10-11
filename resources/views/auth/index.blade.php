@@ -9,6 +9,8 @@
 </head>
 <body>
     <div class="container">
+        @include('sweetalert::alert')
+
         <input type="checkbox" id="flip">
         <div class="cover">
             <div class="front">
@@ -18,51 +20,54 @@
                 <img class="backImg" src="/asset/img-2.jpg" alt="">
             </div>
         </div>
-        <form action="#">
-            <div class="form-content">
-            <div class="register-form">
+        <div class="form-content">
+            <form action="/login" method="POST">
+                @csrf
+                <div class="login-form">
+                    <div class="title">Sign In</div>
+                    <div class="text">If you don't have an account register</div>
+                    <div class="text-2">You can <label for="flip">Register here</label></div>
+                    <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input name="email" value="" type="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input name="password" value="" type="password" placeholder="Enter your password" required>
+                        </div>
+                        <div class="button input-box">
+                            <input type="submit" value="Login">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form action="/register" method="POST">
+                @csrf
+                <div class="register-form">
                 <div class="title">Sign Up</div>
                 <div class="text">If you already have an account register</div>
                 <div class="text-2">You can <label for="flip">Login here</label></div>
                 <div class="input-boxes">
                     <div class="input-box">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Enter your username" required>
+                        <input name="name" value="" type="text" placeholder="Enter your username" required>
                     </div>
                     <div class="input-box">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Enter your email" required>
+                        <input name="email" value="" type="email" placeholder="Enter your email" required>
                     </div>
                     <div class="input-box">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Enter your password" required>
+                        <input name="password" value="" type="password" placeholder="Enter your password" required>
                     </div>
                     <div class="button input-box">
                         <input type="submit" value="Register">
                     </div>
                 </div>
             </div>
-            <div class="login-form">
-                <div class="title">Sign In</div>
-                <div class="text">If you don't have an account register</div>
-                <div class="text-2">You can <label for="flip">Register here</label></div>
-                <div class="input-boxes">
-                    <div class="input-box">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Enter your email" required>
-                    </div>
-                    <div class="input-box">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Enter your password" required>
-                    </div>
-                    <div class="text-2"><a href="#">Forgot Passsword?</a></div>
-                    <div class="button input-box">
-                        <input type="submit" value="Login">
-                    </div>
-                </div>
-            </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </body>
 </html>

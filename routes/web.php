@@ -29,4 +29,8 @@ Route::post('dashboard/novel/delete', [NovelController::class,'delete']);
 
 Route::get('/dashboard/genre', [GenreController::class,'genre']);
 
-Route::get('/authenticate', [LoginController::class,'index']);
+Route::get('/authenticate', [LoginController::class,'index'])->middleware('guest');
+
+Route::post('/register', [LoginController::class,'store'])->middleware('guest');
+Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
+Route::post('/logout', [LoginController::class, 'logout']);

@@ -82,7 +82,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: start;
-    gap: 160px;
+    gap: 170px;
 }
 
 .form-content form .login-form,
