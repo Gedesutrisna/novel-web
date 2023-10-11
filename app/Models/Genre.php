@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Genre extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
+
     public function admin()
     {
         return $this->belongsTo(Admin::class);

@@ -13,6 +13,8 @@ class Novel extends Model
     protected $guarded = [];
     
     use HasFactory;
+    protected $guarded = ['id'];
+
     public function admin()
     {
         return $this->belongsTo(Admin::class);
@@ -36,5 +38,21 @@ class Novel extends Model
     public function episode()
     {
         return $this->hasMany(Episode::class);
+    }
+    public function averageRating($novelId)
+    {
+        $reviews = Review::where('novel_id', $novelId)->where('rating', '!=', null)->get();
+        $totalReviews = $reviews->count();
+        $totalRating = $reviews->sum('rating');
+
+        if ($totalReviews > 0) {
+            $averageRating = $totalRating / $totalReviews;
+        } else {
+            $averageRating = 0;
+        }
+        
+        $averageRating = number_format($averageRating, 2);
+
+        return $averageRating;
     }
 }
