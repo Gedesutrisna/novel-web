@@ -20,6 +20,7 @@ class NovelSeeder extends Seeder
         'description' => 'asdadhhjadagdhagdjhasgdashad',
         'image' => 'icon.svg',
         'creator' => 'Agus',
+        'year_published' => '01-10-2023',
         'admin_id' => '2',
         'genre_id' => '1'
         ]);

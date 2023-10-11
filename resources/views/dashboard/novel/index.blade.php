@@ -1,5 +1,13 @@
 @extends('dashboard.layouts.main')
 @section('container')
+
+
+@if(session()->has('berhasil'))
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ session('berhasil') }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
 <section>
     <div class="row">
         <div class="col-lg-12">                        
@@ -13,9 +21,12 @@
                         <tr>
                             <th>#</th>
                             <th>Title</th>
-                            <th>Genre</th>
-                            <th>Year Published</th>
+                            <th>Slug</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                             <!-- Genre -->
                             <th>Creator</th>
+                            <th>Year Publised</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -24,9 +35,12 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $novel->title }}</td>
-                            <td>{{ $novel->genre->name }}</td>
-                            <td>{{ $novel->year_published }}</td>
+                            <td>{{ $novel->slug }}</td>
+                            <td>{{ $novel->description }}</td>
+                            <td>{{ $novel->image }}</td>
                             <td>{{ $novel->creator }}</td>
+                            <td>{{ $novel->year_published }}</td>
+                           
                             <td class="text-center">
                                 <button class="btn label"><img src="/assets/eye-i.svg" alt=""></button>
                                                   <!-- Modal -->
@@ -168,7 +182,7 @@
           <h5 class="modal-title" id="exampleModalLabel">Create Data Novel</h5>
         </div>
         <div class="modal-body">
-          <form method="POST" action="/dashboard/facilities" enctype="multipart/form-data">
+          <form method="POST" action="/novel/createdata" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -215,13 +229,15 @@
               </div>
             <div class="mb-3">
                 <label for="year_publised" class="form-label">year_publised</label>
-                <input type="text" class="form-control @error('year_publised') is-invalid @enderror" id="year_publised" name="year_publised"
-                required autofocus value="{{ old('year_publised') }}">
+                <input type="text" class="form-control @error('year_publised') is-invalid @enderror" id="year_publised" name="year_published" required autofocus value="{{ old('year_publised') }}">
                 @error('year_publised')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>
                 @enderror
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control @error('year_publised') is-invalid @enderror" id="year_publised" name="admin_id" required autofocus value="{{ auth()->guard('admin')->user()->id }}">
               </div>
             <div class="mb-3">
                 <label for="creator" class="form-label">creator</label>

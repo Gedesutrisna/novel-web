@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Novel extends Model
 {
+
+    protected $guarded = [];
+    
     use HasFactory;
     public function admin()
     {

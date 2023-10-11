@@ -18,9 +18,11 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', [DashboardController::class,'index']);
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:admin'], function () {
-    Route::get('/', [DashboardController::class,'index']);
+    
 }); 
 
 Route::get('/novel', [NovelController::class,'novel']);
 Route::post('/novel/createdata', [NovelController::class,'createdata']);
+Route::post('/novel/delete/{id}', [NovelController::class,'delete']);
+
 Route::post('/novel/delete', [NovelController::class,'delete']);
