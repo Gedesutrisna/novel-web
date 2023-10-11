@@ -30,4 +30,11 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
+    public function register(RegisterRequest $request)
+    {
+        $validatedData = $request->validated();
+        $validatedData['password'] = bcrypt($validatedData['password']);
+        User::create($validatedData);
+        return redirect('/login')->with('success','Register Successfuly');
+    }
 }
