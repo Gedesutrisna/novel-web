@@ -24,8 +24,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:admin'], function (
 }); 
 
 Route::get('dashboard/novel', [NovelController::class,'novel']);
-Route::post('dashboard/novel/createdata', [NovelController::class,'createdata']);
-Route::post('dashboard/novel/delete', [NovelController::class,'delete']);
+Route::post('/novel/create', [NovelController::class,'create'])->name('create');
+Route::post('/novel/delete/{id}', [NovelController::class,'delete']);
+Route::post('/novel/update/{id}', [NovelController::class,'update']);
+
+
 
 Route::get('/dashboard/genre', [GenreController::class,'genre']);
 
