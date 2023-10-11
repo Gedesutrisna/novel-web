@@ -236,7 +236,7 @@
                 @enderror
               </div>
               <div class="mb-3">
-                <input type="text" class="form-control @error('year_publised') is-invalid @enderror" id="year_publised" name="admin_id" required autofocus value="{{ auth()->guard('admin')->user()->id }}">
+                <input type="text" class="form-control"  name="admin_id" required autofocus value="1">
               </div>
             <div class="mb-3">
                 <label for="creator" class="form-label">creator</label>

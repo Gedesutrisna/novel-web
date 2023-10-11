@@ -17,6 +17,8 @@ class NovelController extends Controller
     }
 
     public function createdata(Request $request){
+
+        dd($request);
         $novels = Novel::create($request->all());
       
 
@@ -26,7 +28,7 @@ class NovelController extends Controller
             $novels->save();
         }
         
-        dd($request);
+    
 
         return redirect('novel')->with('berhasil', 'Data Berhasil Ditambahkan');
     }
