@@ -17,7 +17,20 @@ class NovelController extends Controller
     }
 
     public function createdata(Request $request){
+
+        dd($request);
         $novels = Novel::create($request->all());
+      
+
+        if($request->hasFile('image')){
+            $request->file('image')->move('novel/', $request->file('image')->getClientOriginalName());
+            $novels->gambar = $request->file('image')->getClientOriginalName();
+            $novels->save();
+        }
+        
+    
+
+        return redirect('novel')->with('berhasil', 'Data Berhasil Ditambahkan');
     }
 
     public function delete($id){
@@ -25,4 +38,6 @@ class NovelController extends Controller
         $novels->delete();
         return redirect('dashborad.novel.index');
     }
+    
+   
 }
