@@ -16,28 +16,46 @@ class NovelController extends Controller
         return view('dashboard.novel.index', compact('novels', 'genres'));
     }
 
-    public function createdata(Request $request){
-
-        dd($request);
+    public function create(Request $request){
         $novels = Novel::create($request->all());
+        $genres = Genre::all();
       
 
         if($request->hasFile('image')){
             $request->file('image')->move('novel/', $request->file('image')->getClientOriginalName());
-            $novels->gambar = $request->file('image')->getClientOriginalName();
+            $novels->image = $request->file('image')->getClientOriginalName();
             $novels->save();
         }
         
     
 
-        return redirect('novel')->with('berhasil', 'Data Berhasil Ditambahkan');
+        return back()->with('berhasil', 'Data Berhasil Ditambahkan');
     }
 
     public function delete($id){
+
         $novels = Novel::find($id);
         $novels->delete();
-        return redirect('dashborad.novel.index');
+        return back()->with('hapus', 'Data Telah Dihapus');
     }
-    
+
+    public function update(Request $request, $id){
+        $novels = Novel::findorfail($id);
+        $data = $novels->image;
+
+        $post =[
+            'title' => $request['title'],
+            'slug' => $request['slug'],
+            'description' => $request['description'],
+            'creator' => $request['creator'],
+            'year_published' => $request['year_published'],
+            'admin_id' => $request['admin_id'],
+            'genre_id' => $request['genre_id'],
+        ];
+
+        $request->image->move(public_path() . '/novel' , $data);
+        $data->update($post);
+        return back();
+    }
    
 }

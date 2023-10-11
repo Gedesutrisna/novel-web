@@ -4,12 +4,13 @@ namespace App\Models;
 
 use App\Models\Admin;
 use App\Models\Genre;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Novel extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
     protected $guarded = ['id'];
 
     public function admin()
@@ -51,5 +52,14 @@ class Novel extends Model
         $averageRating = number_format($averageRating, 2);
 
         return $averageRating;
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+            ]
+        ];
     }
 }

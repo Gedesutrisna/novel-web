@@ -3,8 +3,14 @@
 
 
 @if(session()->has('berhasil'))
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
     {{ session('berhasil') }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+@if(session()->has('hapus'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ session('hapus') }}
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
@@ -21,7 +27,6 @@
                         <tr>
                             <th>No</th>
                             <th>Title</th>
-                            <th>Slug</th>
                             <th>Description</th>
                             <th>Image</th>
                              <!-- Genre -->
@@ -35,12 +40,13 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $novel->title }}</td>
-                            <td>{{ $novel->slug }}</td>
+                            
                             <td>{{ $novel->description }}</td>
-                            <td>{{ $novel->image }}</td>
+                            <td>
+                                  <img style="height: 50px;" src=" {{asset('novel/'. $novel->image)}} " alt="">
+                            </td>
                             <td>{{ $novel->creator }}</td>
                             <td>{{ $novel->year_published }}</td>
-                            <td>{{ $novel->creator }}</td>
                             <td>
                                 <button class="btn label"><img src="/assets/eye-i.svg" alt=""></button>
                                 
@@ -53,11 +59,8 @@
         <h5 class="modal-title" id="exampleModalLabel">Edit Data Novel</h5>
       </div>
       <div class="modal-body">
-        
-
       <!-- FORM EDIT -->
-        <form method="POST" action="/dashboard/novels/{{ $novel->slug }}"  enctype="multipart/form-data">
-          @method('put')
+        <form method="POST" action="/novel/update/{$novel->id}',"  enctype="multipart/form-data">
           @csrf
           <div class="mb-3">
               <label for="title" class="form-label">Title</label>
@@ -79,17 +82,30 @@
                   </div>
               @enderror
             </div>
+        
+          
           <div class="mb-3">
-              <label for="image" class="form-label">Image</label>
-              <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
-              required autofocus value="{{ old('image', $novel->image) }}">
-              @error('image')
+              <label for="year_publised" class="form-label">year_publised</label>
+              <input type="text" class="form-control @error('year_publised') is-invalid @enderror" id="year_publised" name="year_publised"
+              required autofocus value="{{ $novel->year_published }}">
+              @error('year_publised')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
               @enderror
             </div>
           <div class="mb-3">
+              <label for="creator" class="form-label">creator</label>
+              <input type="text" class="form-control @error('creator') is-invalid @enderror" id="creator" name="creator"
+              required autofocus value="{{ old('creator', $novel->creator) }}">
+              @error('creator')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+              @enderror
+            </div>
+
+            <div class="mb-3">
               <label for="genre" class="form-label">Genre</label>
               <select name="genre_id" id="">
                   @foreach ($genres as $genre)
@@ -102,21 +118,19 @@
                   </div>
               @enderror
             </div>
-          <div class="mb-3">
-              <label for="year_publised" class="form-label">year_publised</label>
-              <input type="text" class="form-control @error('year_publised') is-invalid @enderror" id="year_publised" name="year_publised"
-              required autofocus value="{{ old('year_publised', $novel->year_publised) }}">
-              @error('year_publised')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-              @enderror
-            </div>
-          <div class="mb-3">
-              <label for="creator" class="form-label">creator</label>
-              <input type="text" class="form-control @error('creator') is-invalid @enderror" id="creator" name="creator"
-              required autofocus value="{{ old('creator', $novel->creator) }}">
-              @error('creator')
+
+            <div class="mb-3">
+              <label for="image" class="form-label">Image</label>
+              <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
+               autofocus onchange="loadFile(event)">
+              <img style="height: 200px;" src=" {{asset('novel/'. $novel->image)}} " alt="">
+
+              @if($novel->image)
+             <img id="output" style="height: 200px;" />
+              @else
+              <img style="height: 200px;" src=" {{asset('novel/'. $novel->image)}} " alt="">
+              @endif
+              @error('image')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -154,8 +168,7 @@
 <div class="modal-body d-flex justify-content-between align-items-center">
 <button type="button" class="main-btn" data-bs-dismiss="modal"><i class="bi bi-x"></i></button>
 
-<form action="/dashboard/novels/{{ $novel->slug }}" method="POST" class="d-inline mb-0">
-@method('delete')
+<form action="/novel/delete/{{ $novel->id }}" method="POST" class="d-inline mb-0">
 @csrf
 <button type="submit" class="main-btn active">Delete Data</button>
 </form>
@@ -181,7 +194,7 @@
           <h5 class="modal-title" id="exampleModalLabel">Create Data Novel</h5>
         </div>
         <div class="modal-body">
-          <form method="POST" action="/novel/createdata" enctype="multipart/form-data">
+          <form method="POST" action="{{route('create')}}" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -203,17 +216,32 @@
                     </div>
                 @enderror
               </div>
+          
+            
             <div class="mb-3">
-                <label for="image" class="form-label">Image</label>
-                <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
-                required autofocus value="{{ old('image') }}">
-                @error('image')
+                <label for="year_publised" class="form-label">year_publised</label>
+                <input type="text" class="form-control @error('year_publised') is-invalid @enderror" id="year_publised" name="year_published" required autofocus value="{{ old('year_publised') }}">
+                @error('year_publised')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>
                 @enderror
               </div>
+              <div class="mb-3">
+                <input type="hidden" class="form-control"  name="admin_id" required autofocus value="1">
+              </div>
             <div class="mb-3">
+                <label for="creator" class="form-label">creator</label>
+                <input type="text" class="form-control @error('creator') is-invalid @enderror" id="creator" name="creator"
+                required autofocus value="{{ old('creator') }}">
+                @error('creator')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                @enderror
+              </div>
+
+              <div class="mb-3">
                 <label for="genre" class="form-label">Genre</label>
                 <select name="genre_id" id="">
                     @foreach ($genres as $genre)
@@ -226,28 +254,19 @@
                     </div>
                 @enderror
               </div>
-            <div class="mb-3">
-                <label for="year_publised" class="form-label">year_publised</label>
-                <input type="text" class="form-control @error('year_publised') is-invalid @enderror" id="year_publised" name="year_published" required autofocus value="{{ old('year_publised') }}">
-                @error('year_publised')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                @enderror
-              </div>
+
               <div class="mb-3">
-                <input type="text" class="form-control"  name="admin_id" required autofocus value="1">
-              </div>
-            <div class="mb-3">
-                <label for="creator" class="form-label">creator</label>
-                <input type="text" class="form-control @error('creator') is-invalid @enderror" id="creator" name="creator"
-                required autofocus value="{{ old('creator') }}">
-                @error('creator')
+                <label for="image" class="form-label">Image</label>
+                <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
+                required autofocus  onchange="loadFile(event)">
+                <img id="output" style="height: 200px;" />
+                @error('image')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>
                 @enderror
               </div>
+
               <div class="mb-3">
                 <input type="hidden" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
                 required value="{{ old('slug') }}">
@@ -268,4 +287,23 @@
      </div>
    </div>
 </section>
+<script>
+const titleInput = document.querySelector('#title');
+const slugInput = document.querySelector('#slug');
+
+titleInput.addEventListener('change', function() {
+  const titleValue = titleInput.value.toLowerCase().trim().replace(/\s+/g, '-');
+  slugInput.value = titleValue;
+});
+
+var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+
+</script>
 @endsection
