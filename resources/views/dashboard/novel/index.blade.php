@@ -9,7 +9,7 @@
 </div>
 @endif
 @if(session()->has('hapus'))
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
     {{ session('hapus') }}
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
@@ -259,7 +259,7 @@
                 <label for="image" class="form-label">Image</label>
                 <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
                 required autofocus  onchange="loadFile(event)">
-                <img id="output" style="height: 200px;" />
+                <img id="output" style="height: 200px;"/>
                 @error('image')
                     <div class="invalid-feedback">
                       {{ $message }}
