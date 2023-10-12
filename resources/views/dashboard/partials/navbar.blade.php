@@ -17,7 +17,7 @@
             </div>
             <div class="">
                 
-                <p class="job">Admin</p>
+                <p class="job">{{ auth()->guard('admin')->user()->name }}</p>
             </div>
         </div>
     </div>

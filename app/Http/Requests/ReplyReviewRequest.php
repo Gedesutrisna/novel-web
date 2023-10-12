@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreReplyReviewRequest extends FormRequest
+class ReplyReviewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class StoreReplyReviewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'review_id' => 'string',
+            'comment' => 'string',
         ];
     }
 }

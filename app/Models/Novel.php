@@ -54,6 +54,7 @@ class Novel extends Model
         return $averageRating;
     }
 
+
     public function sluggable(): array
     {
         return [
