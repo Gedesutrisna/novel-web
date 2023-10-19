@@ -2,12 +2,15 @@
 @section('container')
 
 
-@if(session()->has('berhasil'))
+@if(session()->has('success'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{ session('berhasil') }}
+    {{ session('success') }}
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
+
+
+
 @if(session()->has('hapus'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     {{ session('hapus') }}
@@ -48,7 +51,7 @@
                             <td>{{ $novel->creator }}</td>
                             <td>{{ $novel->year_published }}</td>
                             <td>
-                              <a href="/dashboard/novel/{{ $novel->slug }}" class="text-decoration-none">
+                              <a href="/dashboard/novel/{{ $novel->id }}" class="text-decoration-none">
                                 <button class="btn label"><img src="/assets/eye-i.svg" alt=""></button>
                               </a>
                                 
@@ -114,7 +117,7 @@
                 <option value="">Select Genre</option>
                 @foreach ($genres as $genre)
                 @if (old('genre_id', $novel->genre_id) == $genre->id)
-                <option value="{{ $genre->id }}" selected>{{ $genre->name}}</option>    
+                <option @selected(old('genre_id') == $genre->id) value="{{ $genre->id }}" selected>{{ $genre->name}}</option>    
                 @else
                     <option value="{{ $genre->id }}">{{ $genre->name}}</option>
                   @endif
@@ -246,10 +249,10 @@
 
               <div class="mb-3">
                 <label for="genre" class="form-label">Genre</label>
-                <select name="genre_id" class="form-control" id="">
+                <select name="genre_id" class="form-control" id="" >
                   <option value="">Select Genre</option>
                     @foreach ($genres as $genre)
-                    <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                    <option @selected(old('genre_id') == $genre->id) value="{{ $genre->id }}">{{ $genre->name }}</option>
                     @endforeach
                 </select>
                 @error('genre')

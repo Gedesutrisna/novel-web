@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NovelRequest;
 use App\Models\Genre;
 use App\Models\Novel;
 use Illuminate\Http\Request;
@@ -16,16 +17,18 @@ class NovelController extends Controller
         $genres = Genre:: all();
         return view('dashboard.novel.index', compact('novels', 'genres'));
     }
-    public function show(Novel $novel)
+    public function show($id)
     {
-        return view('dashboard.novel.show',[
-            'novel' => $novel,
-        ]);
+        $novel = Novel::find($id);
+        return view('dashboard.novel.show', compact('novel'));
     }
 
-    public function create(Request $request){
+    public function create(NovelRequest $request){
+
+        $valdatedData= $request->validated();
+    
         $request['admin_id'] = Auth::guard('admin')->user()->id;
-        $novels = Novel::create($request->all());
+        $novels = Novel::create($valdatedData);
         $genres = Genre::all();
       
 
@@ -37,7 +40,8 @@ class NovelController extends Controller
         
     
 
-        return back()->with('success', 'Data Berhasil Ditambahkan');
+        return back()->with('success', 'Data Berhasil Ditambahkan')
+        ;
     }
 
     public function delete($id){
@@ -48,6 +52,16 @@ class NovelController extends Controller
     }
 
     public function update(Request $request, $id){
+        
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'year_published' => 'required',
+            'creator' => 'required',
+            'genre_id' => 'required',
+            'image' => 'image|mimes:jpg,png'
+        ]);
+        
         $novels = Novel::findorfail($id);
         $data = $request->file('image') ? $request->file('image')->store('novel') : $novels->image;
 
@@ -61,7 +75,7 @@ class NovelController extends Controller
             'genre_id' => $request['genre_id'],
             'image' => $data,
         ];
-        
+       
         $novels->update($post);
         return back();
     }
