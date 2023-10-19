@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('auth.index');
+        return view('auth.admin.index');
     }
     public function login(LoginRequest $request)
     {
@@ -21,9 +21,9 @@ class LoginController extends Controller
         if(Auth::guard('admin')->attempt($credentials))
         {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard')->with('success', 'Login Successfuly');
+            return redirect('/dashboard')->with('success', 'Login Successfuly');
         }
-        return redirect()->intended('/dashboard')->with('success', 'Login Failed');
+        return back()->with('error', 'Login Failed');
     }
     public function logout(Request $request)
     {
@@ -31,12 +31,5 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
-    }
-    public function store(RegisterRequest $request)
-    {
-        $validatedData = $request->validated();
-        $validatedData['password'] = bcrypt($validatedData['password']);
-        User::create($validatedData);
-        return back()->with('success','Register Successfuly');
     }
 }

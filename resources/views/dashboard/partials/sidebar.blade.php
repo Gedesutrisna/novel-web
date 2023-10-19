@@ -1,7 +1,7 @@
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse position-fixed nav-custom d-flex justify-content-center align-items-center">
                 <div class="py-3 px-2 sidebar-sticky sidebar custom d-flex flex-column mx-auto">
                     <a href="/" class="text-decoration-none mx-auto">
-                        <h1 class="name mt-2 mb-5"><img src="/assets/icon.svg" alt="">Store</h1>
+                        <h1 class="name mt-2 mb-5"><img src="/assets/icon.svg" alt="">Novel</h1>
                     </a>
                 <ul class="nav flex-column gap-3">
                     <li class="nav-item">

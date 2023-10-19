@@ -7,14 +7,28 @@
                 <div class="col-lg-4">
                     <div class="box top black d-flex flex-column">
                         <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h1 class="stats white">Weekly Sales</h1>
+                            <h1 class="stats white">Novel</h1>
                             <div class="icon white rounded-circle">
                                 <img src="/assets/sale-i.svg" alt="">
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <h1 class="num white">$123.000</h1>
+                            <h1 class="num white">{{ $novels->count() }}</h1>
                             <p class="tren white mb-0">+20%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="box top d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h1 class="stats">Episode</h1>
+                            <div class="icon black rounded-circle">
+                                <img src="/assets/order-i-active.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h1 class="num">{{ $episodes->count() }}</h1>
+                            <p class="tren mb-0">+20%</p>
                         </div>
                     </div>
                 </div>
@@ -27,21 +41,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <h1 class="num">64.000</h1>
-                            <p class="tren mb-0">+20%</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="box top d-flex flex-column">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h1 class="stats">Weekly Orders</h1>
-                            <div class="icon black rounded-circle">
-                                <img src="/assets/order-i-active.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h1 class="num">1.200</h1>
+                            <h1 class="num">{{ $users->count() }}</h1>
                             <p class="tren mb-0">+20%</p>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                 <div class="col-lg-12">
                     <div class="box h-100">
                         <div class="d-flex justify-content-between align-items-center mb-2">
-                            <h1 class="box-title mb-0">Sale Stats</h1>   
+                            <h1 class="box-title mb-0">Visitiors Stats</h1>   
                             <div class="d-flex gap-2">
                                 <button class="main-btn">Day</button>
                                 <button class="main-btn">Week</button>

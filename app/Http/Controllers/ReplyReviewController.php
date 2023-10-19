@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rating;
+use App\Models\ReplyReview;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use App\Http\Requests\RatingRequest;
+use App\Http\Requests\ReplyReviewRequest;
 
-class RatingController extends Controller
+class ReplyReviewController extends Controller
 {
-    public function store(RatingRequest $request)
+    public function store(ReplyReviewRequest $request)
     {
         $validatedData = $request->validated();
         $validatedData['user_id'] = auth()->user()->id;
-        Rating::create($validatedData);
+        ReplyReview::create($validatedData);
         return back()->with('success','Reply Added Successfully!');
     }
 }
