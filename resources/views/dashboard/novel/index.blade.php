@@ -264,10 +264,11 @@
 
               <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
-                <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
-                onchange="previewImages()">
-                <img class="img-previews" src="" style="height: 200px;"/>
-                @error('image')
+                <input type="file" class="form-control mb-3 @error('image') is-invalid @enderror" id="images" name="image"
+                onchange="previewImages()" value="">
+
+                <img class="img-previews" id="img-preview" src=""/>
+               @error('image')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>
@@ -314,10 +315,11 @@ function previewImage(){
       const blob = URL.createObjectURL(image.files[0]);
 imgPreview.src = blob;
 
+
       }
 function previewImages(){
       const image = document.querySelector('#images');
-      const imgPreviews = document.querySelector('.img-previews');
+      const imgPreviews = document.querySelector('#img-preview');
 
       imgPreviews.style.display = 'block';
       imgPreviews.style.height = '200px';

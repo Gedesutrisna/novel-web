@@ -27,13 +27,13 @@ class NovelController extends Controller
 
         $valdatedData= $request->validated();
     
-        $request['admin_id'] = Auth::guard('admin')->user()->id;
+        $valdatedData['admin_id'] = Auth::guard('admin')->user()->id;
         $novels = Novel::create($valdatedData);
         $genres = Genre::all();
       
 
         if($request->hasFile('image')){
-            $request->file('image')->move('storage/', $request->file('image')->getClientOriginalName());
+            $request->file('image')->move('storage/novel/', $request->file('image')->getClientOriginalName());
             $novels->image = $request->file('image')->getClientOriginalName();
             $novels->save();
         }

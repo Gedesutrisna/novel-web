@@ -49,7 +49,10 @@
                             <td>
                                <img style="height: 100px;" src="{{asset('storage/'. $eps->image)}} " alt="">
                             </td>
-                            <td>{{ $eps->file_pdf }}</td>
+                            <td>
+                              <iframe class="file-preview" id="file-preview" src="{{ asset('storage/'.$eps->file_pdf) }}" frameborder="0"></iframe>
+
+                            </td>
                             
                             <td>
                                 <button class="btn label"><img src="/assets/eye-i.svg" alt=""></button>
@@ -60,7 +63,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Data Novel</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Data Episode {{ $eps->name }}</h5>
       </div>
       <div class="modal-body">
       <!-- FORM EDIT -->
@@ -87,12 +90,26 @@
                     </div>
                 @enderror
               </div>
+              <div class="mb-3">
+                  <label for="image" class="form-label">File</label>
+                  <input type="file" class="form-control mb-3 @error('file_pdf') is-invalid @enderror" id="file_pdf" name="file_pdf" onchange="previewFile()" value="{{ old('file_pdf',$eps->file_pdf) }}">
+                  @if($eps->file_pdf)
+                  <iframe class="file-preview" id="file-preview" src="{{ asset('storage/'.$eps->file_pdf) }}" frameborder="0"></iframe>
+                  @else
+                  <iframe class="file-preview" id="file-preview" src="" frameborder="0"></iframe>
+                  @endif
+                  @error('file_pdf')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                  @enderror
+                </div>
 
               <div class="mb-3">
               <label for="image" class="form-label">Image</label>
-              <input type="file" class="form-control mb-3 @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage()" value="{{ old('image',$novel->image) }}">
-              @if($novel->image)
-              <img class="img-preview" style="height: 200px;" src="{{asset('storage/'. $novel->image)}} " alt="">
+              <input type="file" class="form-control mb-3 @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage()" value="{{ old('image',$eps->image) }}">
+              @if($eps->image)
+              <img class="img-preview" style="height: 200px;" src="{{asset('storage/'. $eps->image)}} " alt="">
               @else
               <img class="img-preview" src="" style="height: 200px;" />
               @endif
@@ -103,25 +120,8 @@
               @enderror
             </div>
 
-            <div class="mb-3">
-                <label for="image" class="form-label">File</label>
-                <input type="file" class="form-control @error('file_pdf') is-invalid @enderror" id="file_pdf" name="file_pdf">
-                @error('file_pdf')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                @enderror
-              </div>
 
            <input type="hidden" value="{{$novel->id}}" name="novel_id">
-
-              @error('novel')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-              @enderror
-            </div>
-
 
            
             
@@ -158,7 +158,7 @@
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header d-block">
-<h5 class="modal-title" id="exampleModalLabel">Delete novel {{ $novel->name }}</h5>
+<h5 class="modal-title" id="exampleModalLabel">Delete Data Episode {{ $eps->name }}</h5>
 <p class="text-muted">Are You Sure Delete This novel ?</p>
 </div>
 <div class="modal-body d-flex justify-content-between align-items-center">
@@ -215,14 +215,22 @@
                 @enderror
               </div>
 
+              
+              <div class="mb-3">
+                <label for="image" class="form-label">File</label>
+                <input type="file" class="form-control mb-3 @error('file_pdf') is-invalid @enderror" id="file_pdfs" name="file_pdf" onchange="previewFiles()" value="">
+                <iframe class="file-previews" id="file-previews" src="" frameborder="0"></iframe>
+                @error('file_pdf')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+              </div>
               <div class="mb-3">
               <label for="image" class="form-label">Image</label>
-              <input type="file" class="form-control mb-3 @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage()" value="{{ old('image',$novel->image) }}">
-              @if($novel->image)
-              <img class="img-preview" style="height: 200px;" src="{{asset('storage/'. $novel->image)}} " alt="">
-              @else
-              <img class="img-preview" src="" style="height: 200px;" />
-              @endif
+              <input type="file" class="form-control mb-3 @error('image') is-invalid @enderror" id="images" name="image" onchange="previewImages()" value="">
+              <img class="img-previews" id="img-preview" src=""/>
+
               @error('image')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -230,44 +238,14 @@
               @enderror
             </div>
 
-            <div class="mb-3">
-                <label for="image" class="form-label">File</label>
-                <input type="file" class="form-control @error('file_pdf') is-invalid @enderror" id="file_pdf" name="file_pdf">
-                @error('file_pdf')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                @enderror
-              </div>
-
            <input type="hidden" value="{{$novel->id}} " name="novel_id">
-
-              @error('novel')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-              @enderror
-            </div>
-
-
-           
-            
-           
-              <div class="mb-3">
-                <input type="hidden" class="form-control"  name="admin_id" required autofocus value="1">
-              </div>
-           
-             
-
-              <div class="mb-3">
+      
+          
+              <div class="">
                 <input type="hidden" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
                 required value="{{ old('slug') }}">
-                @error('slug')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                @enderror
               </div>
+              <hr>
             <div class="button d-flex justify-content-between">
 
               <button type="button" class="main-btn" data-bs-dismiss="modal"><i class="bi bi-x"></i></button>
@@ -288,14 +266,61 @@ titleInput.addEventListener('change', function() {
   slugInput.value = titleValue;
 });
 
-var loadFile = function(event) {
-    var reader = new FileReader();
-    reader.onload = function(){
-      var output = document.getElementById('output');
-      output.src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  };
+// var loadFile = function(event) {
+//     var reader = new FileReader();
+//     reader.onload = function(){
+//       var output = document.getElementById('output');
+//       output.src = reader.result;
+//     };
+//     reader.readAsDataURL(event.target.files[0]);
+//   };
+  function previewFile(){
+      const file = document.querySelector('#file_pdf');
+      const filePreview = document.querySelector('#file-preview');
 
+      filePreview.style.display = 'block';
+      filePreview.style.height = '200px';
+
+      
+      const blob = URL.createObjectURL(file.files[0]);
+filePreview.src = blob;
+}
+  function previewFiles(){
+      const file = document.querySelector('#file_pdfs');
+      const filePreviews = document.querySelector('#file-previews');
+
+      filePreviews.style.display = 'block';
+      filePreviews.style.height = '200px';
+
+      
+      const blob = URL.createObjectURL(file.files[0]);
+filePreviews.src = blob;
+}
+
+
+function previewImage(){
+  const image = document.querySelector('#image');
+  const imgPreview = document.querySelector('.img-preview');
+  
+  imgPreview.style.display = 'block';
+  imgPreview.style.height = '200px';
+  
+  const blob = URL.createObjectURL(image.files[0]);
+  imgPreview.src = blob;
+  
+  
+}
+function previewImages(){
+  const image = document.querySelector('#images');
+  const imgPreviews = document.querySelector('#img-preview');
+  
+  imgPreviews.style.display = 'block';
+  imgPreviews.style.height = '200px';
+  
+  const blob = URL.createObjectURL(image.files[0]);
+  imgPreviews.src = blob;
+
+
+      }
 </script>
 @endsection

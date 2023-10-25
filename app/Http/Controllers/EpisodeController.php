@@ -53,13 +53,12 @@ class EpisodeController extends Controller
     public function update(Request $request, $id)
     {
         $eps = Episode::findorfail($id);
-        dd($eps);
         $data = $request->file('image') ? $request->file('image')->store('novel') : $eps->image;
         $file = $request->file('file_pdf') ? $request->file('file_pdf')->store('file_novel') : $eps->file_pdf;
 
         $post =[
             'name' => $request['name'],
-            'number' => $request['slug'],
+            'number' => $request['number'],
             'admin_id' => Auth::guard('admin')->user()->id,
             'file_pdf' => $file,
             'image' => $data,
