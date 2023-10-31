@@ -1,0 +1,201 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body{
+    background: #000;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.genre-title-section .genres h1{
+    font-size: 20px;
+}
+
+.genre-title-section .genres i{
+    font-size: 25px;
+    color: #fff;
+}
+
+.image-comic h2{
+    font-size: 23px;
+}
+
+.container{
+    border-radius: 10px;
+}
+
+.title h1{
+    font-size: 25px;
+}
+
+.chptr h1{
+    font-size: 23px;
+    margin-top: 0;
+}
+
+.chptr i{
+    font-size: 20px;
+}
+
+.bottom{
+    border-bottom: 2px solid #fff;
+    margin: 65px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.btn {
+    background: #09B451;
+}
+
+.btn-fav{
+    background: #D9D9D9;
+}
+
+.read h1{
+    font-size: 20px;
+}
+
+.read-chapter h1{
+    font-size: 20px;
+}
+
+.bg-read{
+    border-radius: 15px;
+}
+
+.chapter h1{
+    font-size: 20px;
+}
+
+.chapter img{
+    cursor: pointer;
+}
+
+.image-comic h1{
+    font-size: 15px;
+    padding-top: 5px;
+    font-weight: bold;
+}
+
+.image-comic p{
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.read-comic .image-comic img {
+    cursor: pointer;
+}
+
+.comment h2{
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.comment h1{
+    font-size: 23px;
+    color: #999;
+    cursor: pointer;
+}
+
+.comment h3{
+    font-size: 12px;
+}
+
+.comment h2:hover{
+    color: #09B451;
+}
+
+.comment p{
+    margin-bottom: 9px;
+}
+
+.comment form input{
+    outline: none;
+    border: none;
+}
+
+.comments .tanggal i{
+    padding: 1px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.comments .tanggal i{
+    font-size: 16px;
+}
+
+.comments .tanggal i:hover{
+    color: #09B451;
+}
+
+.card form input{
+    border: none;
+    outline: none;
+}
+
+.card button{
+    border: none;
+}
+
+.card {
+    border: none;
+    border-radius: 0;
+}
+
+.tanggal i {
+    cursor: pointer;
+}
+
+.tanggal i:hover{
+    color: #09B451;
+}
+
+.reply h3{
+    font-size: 18px;
+}
+
+.answer{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.4s ease;
+}
+
+.faq.active .answer{
+    max-height: 300px;
+    animation: fade 1s ease-in-out;
+}
+
+.question i{
+    cursor: pointer;
+}
+
+.question h3{
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.question h3{
+    background: #999;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.question h3:hover{
+    color: #444;
+}
+
+.faq.active i{
+    transform: rotate(180deg);
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

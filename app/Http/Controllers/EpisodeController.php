@@ -32,7 +32,7 @@ class EpisodeController extends Controller
         }
 
         if($request->hasFile('file_pdf')){
-            $request->file('file_pdf')->move('file_novel/', $request->file('file_pdf')->getClientOriginalName());
+            $request->file('file_pdf')->move('storage/', $request->file('file_pdf')->getClientOriginalName());
             $eps->file_pdf = $request->file('file_pdf')->getClientOriginalName();
             $eps->save();
         }

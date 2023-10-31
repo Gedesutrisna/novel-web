@@ -9,6 +9,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\user\EpisodeController as UserEpisodeController;
+use App\Http\Controllers\user\NovelController as UserNovelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:admin'], function (
 }); 
 
 
+Route::get('/novels', [UserNovelController::class,'index']);
+Route::get('/novels/{novel}', [UserNovelController::class,'show']);
+
+Route::get('/novels/{novel}/{episode}', [UserEpisodeController::class,'index']);
 
 
 
