@@ -12,7 +12,7 @@
             </form>
                 
             @else
-                <a href="/authenticate">Login</a>
+                <a href="/login">Login</a>
             @endif
         </div>
     </section>

@@ -49,7 +49,7 @@ Route::get('/novels/{novel}/{episode}', [UserEpisodeController::class,'show']);
 
 
 
-Route::get('/authenticate', [LoginController::class,'index'])->name('login')->middleware('guest');
+Route::get('/login', [LoginController::class,'index'])->name('login')->middleware('guest');
 
 Route::post('/register', [LoginController::class,'store'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
