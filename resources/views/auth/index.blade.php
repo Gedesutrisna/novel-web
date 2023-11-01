@@ -14,7 +14,7 @@
         <input type="checkbox" id="flip">
         <div class="cover">
             <div class="front">
-                <img src="/asset/img-1.jpg" alt="">
+                <img src="/asset/img-6.jpeg" alt="">
             </div>
             <div class="back">
                 <img class="backImg" src="/asset/img-2.jpg" alt="">
@@ -26,7 +26,7 @@
                 <div class="login-form">
                     <div class="title">Sign In</div>
                     <div class="text">If you don't have an account register</div>
-                    <div class="text-2">You can <label for="flip">Register here</label></div>
+                    <div class="text-2">You can <label for="flip">Register here !</label></div>
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="fas fa-envelope"></i>
@@ -47,7 +47,7 @@
                 <div class="register-form">
                 <div class="title">Sign Up</div>
                 <div class="text">If you already have an account register</div>
-                <div class="text-2">You can <label for="flip">Login here</label></div>
+                <div class="text-2">You can <label for="flip">Login here !</label></div>
                 <div class="input-boxes">
                     <div class="input-box">
                         <i class="fas fa-user"></i>
