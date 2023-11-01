@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class EpisodeController extends Controller
 {
-    public function index(Novel $novel, Episode $episode){
+    public function show(Novel $novel, Episode $episode){
         return view('episode.index',[
             'novel' => $novel,
             'episode' => $episode,

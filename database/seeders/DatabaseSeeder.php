@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Genre;
 use App\Models\Novel;
+use App\Models\Episode;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -46,7 +47,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Naruto',
             'slug' => 'naruto',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga minus eaque! Odit illo inventore sit.',
-            'image' => '/novel/img-1.png',
+            'image' => '/novel/comic-1.svg',
             'creator' => 'Khisimoto',
             'year_published' => $year_published,
             'admin_id' => 1,
@@ -56,7 +57,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Boruto',
             'slug' => 'boruto',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga ',
-            'image' => '/novel/img-2.png',
+            'image' => '/novel/comic-2.svg',
             'creator' => 'Khisimoto',
             'year_published' => $year_published,
             'admin_id' => 1,
@@ -66,11 +67,153 @@ class DatabaseSeeder extends Seeder
             'title' => 'Saruto',
             'slug' => 'saruto',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga minus eaque! Odit illo ',
-            'image' => '/novel/img-3.png',
+            'image' => '/novel/comic-3.svg',
             'creator' => 'Khisimoto',
             'year_published' => $year_published,
             'admin_id' => 1,
             'genre_id' => 1,
+        ]);
+        Novel::create([
+            'title' => 'yu gi oh',
+            'slug' => 'yugioh',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga minus eaque! Odit illo ',
+            'image' => '/novel/comic-4.svg',
+            'creator' => 'Khisimoto',
+            'year_published' => $year_published,
+            'admin_id' => 1,
+            'genre_id' => 1,
+        ]);
+        Novel::create([
+            'title' => 'dragon ball',
+            'slug' => 'dragonball',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga minus eaque! Odit illo ',
+            'image' => '/novel/comic-5.svg',
+            'creator' => 'Khisimoto',
+            'year_published' => $year_published,
+            'admin_id' => 1,
+            'genre_id' => 1,
+        ]);
+        Novel::create([
+            'title' => 'bleach',
+            'slug' => 'bleach',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga minus eaque! Odit illo ',
+            'image' => '/novel/comic-6.svg',
+            'creator' => 'Khisimoto',
+            'year_published' => $year_published,
+            'admin_id' => 1,
+            'genre_id' => 1,
+        ]);
+        Novel::create([
+            'title' => 'ninja hatori',
+            'slug' => 'ninjahatrori',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga minus eaque! Odit illo ',
+            'image' => '/novel/comic-7.svg',
+            'creator' => 'Khisimoto',
+            'year_published' => $year_published,
+            'admin_id' => 1,
+            'genre_id' => 1,
+        ]);
+        Novel::create([
+            'title' => 'Saruto',
+            'slug' => 'saruto',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga minus eaque! Odit illo ',
+            'image' => '/novel/comic-8.svg',
+            'creator' => 'Khisimoto',
+            'year_published' => $year_published,
+            'admin_id' => 1,
+            'genre_id' => 1,
+        ]);
+        Novel::create([
+            'title' => 'one piece',
+            'slug' => 'onepiece',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga minus eaque! Odit illo ',
+            'image' => '/novel/comic-9.svg',
+            'creator' => 'Khisimoto',
+            'year_published' => $year_published,
+            'admin_id' => 1,
+            'genre_id' => 1,
+        ]);
+        Novel::create([
+            'title' => 'OPM',
+            'slug' => 'opm',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga minus eaque! Odit illo ',
+            'image' => '/novel/comic-10.svg',
+            'creator' => 'Khisimoto',
+            'year_published' => $year_published,
+            'admin_id' => 1,
+            'genre_id' => 1,
+        ]);
+        Episode::create([
+            'name' => 'Naruto EPS 1',
+            'number' => '1',
+            'release' => $year_published,
+            'file_pdf' => '/file_novel/pdf1.pdf',
+            'image' => '/episode/comic-chapter-1.svg',
+            'novel_id' => 1,
+            'admin_id' => 1,
+        ]);
+        Episode::create([
+            'name' => 'Naruto EPS 2',
+            'number' => '2',
+            'release' => $year_published,
+            'file_pdf' => '/file_novel/pdf1.pdf',
+            'image' => '/episode/comic-chapter-2.svg',
+            'novel_id' => 1,
+            'admin_id' => 1,
+        ]);
+        Episode::create([
+            'name' => 'Naruto EPS 3',
+            'number' => '3',
+            'release' => $year_published,
+            'file_pdf' => '/file_novel/pdf1.pdf',
+            'image' => '/episode/comic-chapter-3.svg',
+            'novel_id' => 1,
+            'admin_id' => 1,
+        ]);
+        Episode::create([
+            'name' => 'Naruto EPS 4',
+            'number' => '4',
+            'release' => $year_published,
+            'file_pdf' => '/file_novel/pdf1.pdf',
+            'image' => '/episode/comic-chapter-4.svg',
+            'novel_id' => 1,
+            'admin_id' => 1,
+        ]);
+        Episode::create([
+            'name' => 'Naruto EPS 5',
+            'number' => '5',
+            'release' => $year_published,
+            'file_pdf' => '/file_novel/pdf1.pdf',
+            'image' => '/episode/comic-chapter-5.svg',
+            'novel_id' => 1,
+            'admin_id' => 1,
+        ]);
+        Episode::create([
+            'name' => 'Naruto EPS 6',
+            'number' => '6',
+            'release' => $year_published,
+            'file_pdf' => '/file_novel/pdf1.pdf',
+            'image' => '/episode/comic-chapter-6.svg',
+            'novel_id' => 1,
+            'admin_id' => 1,
+        ]);
+        Episode::create([
+            'name' => 'Naruto EPS 7',
+            'number' => '7',
+            'release' => $year_published,
+            'file_pdf' => '/file_novel/pdf1.pdf',
+            'image' => '/episode/comic-chapter-7.svg',
+            'novel_id' => 1,
+            'admin_id' => 1,
+        ]);
+        Episode::create([
+            'name' => 'Naruto EPS 8',
+            'number' => '8',
+            'release' => $year_published,
+            'file_pdf' => '/file_novel/pdf1.pdf',
+            'image' => '/episode/comic-chapter-8.svg',
+            'novel_id' => 1,
+            'admin_id' => 1,
         ]);
     }
 }

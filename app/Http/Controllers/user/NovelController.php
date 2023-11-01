@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\user;
 
-use App\Http\Requests\NovelRequest;
 use App\Models\Genre;
 use App\Models\Novel;
 use Illuminate\Http\Request;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Routing\Controller;
+use App\Http\Requests\NovelRequest;
 use Illuminate\Support\Facades\Auth;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class NovelController extends Controller
 {
@@ -19,8 +20,9 @@ class NovelController extends Controller
     }
     public function show(Novel $novel)
     {
-        return view('novel.show',[
-            'novel'=> $novel
+        $novels = Novel::all()->take(9);
+        return view('novel.show',compact('novels'),[
+            'novel' => $novel,
         ]);
     }
 }

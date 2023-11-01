@@ -17,11 +17,11 @@
     <section class="container">
         <div class="img w-100 d-flex justify-content-center">
             {{-- <img src="/asset/img/hero-coment.svg" alt="" class="w-100"> --}}
-            <object class="file-preview w-75" id="file-preview" src="{{ asset('storage/'.$episode->file_pdf) }}#toolbar=0" frameborder="0"></object>
+            <iframe class="file-preview w-100" id="file-preview" src="{{ asset('storage/'.$episode->file_pdf) }}#toolbar=0" frameborder="0"></iframe>
         </div>
         <style>
             .file-preview{
-                height: 5000px;
+                height: 1200px;
             }
             #toolbar {
     align-items: center;

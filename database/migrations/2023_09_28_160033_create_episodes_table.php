@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('number');
+            $table->date('release');
             $table->string('image');
             $table->string('file_pdf');
             $table->foreignId('novel_id');

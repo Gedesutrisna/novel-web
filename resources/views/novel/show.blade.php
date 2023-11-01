@@ -7,9 +7,9 @@
             <div class="d-flex align-items-center">
             <h1 class="genre-subtitle text-white mb-0">Genre</h1>
             <i class='bx bx-chevron-right'></i>
-            <h1 class="genre-title text-white mb-0">Action</h1>
+            <h1 class="genre-title text-white mb-0">{{ $novel->genre->name }}</h1>
             <i class='bx bx-chevron-right'></i>
-            <h1 class="comic-title text-white mb-0">Inuyashiki Last Hero</h1>
+            <h1 class="comic-title text-white mb-0">{{ $novel->title }}</h1>
             </div>
         </div>
     </div>
@@ -21,9 +21,9 @@
     <img src="/asset/img/comic-read-1.svg" alt="">
   </div>
   <div class="title m-4">
-    <h1 class="fw-bolder">Inuyashiki Last Hero</h1>
-    <p>Action - Inuyashiki</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut labore nostrum voluptatum culpa, odit praesentium dolorem magni beatae doloribus minima magnam doloremque a repellendus minus est amet maiores provident iusto.</p>
+    <h1 class="fw-bolder">{{ $novel->title }}</h1>
+    <p>{{ $novel->genre->name }} - {{ $novel->creator }}</p>
+    <p>{{ $novel->description }}</p>
     <button type="button" class="btn btn-success">Read Now</button>
     <button type="button" class="btn btn-light btn-fav">Favorite</button>
   </div>
@@ -36,130 +36,48 @@
 </div>
 <div class="bottom"></div>
 <section class="container d-flex text-white chapter justify-content-between mb-2 pt-3">
+  <div class="row">
+    @foreach ($novel->episode as $eps)
+    
+    <div class="col-3 mb-3">
+<div class="d-flex gap-3">
   <div class="img">
-    <img src="/asset/img/comic-chapter-1.svg" alt="">
+    <a href="/novels/{{ $novel->slug }}/{{ $eps->name }}">
+      <img src="{{ asset('storage/'.$eps->image) }}" alt="" class="img-fluid" style="width: 125px; height:80px;border-radius: 5px">
+    </a>
   </div>
   <div class="chapter m-2">
-    <h1>Ch. 1</h1>
-    <h1>2023-10-18</h1>
+    <h1>Ch. {{ $eps->number }}</h1>
+    <h1>{{ $eps->release }}</h1>
   </div>
-  <div class="img">
-    <img src="/asset/img/comic-chapter-2.svg" alt="">
-  </div>
-  <div class="chapter m-2">
-    <h1>Ch. 1</h1>
-    <h1>2023-10-18</h1>
-  </div>
-  <div class="img">
-    <img src="/asset/img/comic-chapter-3.svg" alt="">
-  </div>
-  <div class="chapter m-2">
-    <h1>Ch. 1</h1>
-    <h1>2023-10-18</h1>
-  </div>
-  <div class="img">
-    <img src="/asset/img/comic-chapter-4.svg" alt="">
-  </div>
-  <div class="chapter m-2">
-    <h1>Ch. 1</h1>
-    <h1>2023-10-18</h1>
+
+</div>
+    </div>
+    @endforeach 
   </div>
 </section>
 
-<!-- CARD COMIC SECTION -->
-<section class="container d-flex text-white justify-content-between chapter">
-  <div class="img">
-    <img src="/asset/img/comic-chapter-5.svg" alt="">
-  </div>
-  <div class="chapter m-2">
-    <h1>Ch. 1</h1>
-    <h1>2023-10-18</h1>
-  </div>
-  <div class="img">
-    <img src="/asset/img/comic-chapter-6.svg" alt="">
-  </div>
-  <div class="chapter m-2">
-    <h1>Ch. 1</h1>
-    <h1>2023-10-18</h1>
-  </div>
-  <div class="img">
-    <img src="/asset/img/comic-chapter-7.svg" alt="">
-  </div>
-  <div class="chapter m-2">
-    <h1>Ch. 1</h1>
-    <h1>2023-10-18</h1>
-  </div>
-  <div class="img">
-    <img src="/asset/img/comic-chapter-8.svg" alt="">
-  </div>
-  <div class="chapter m-2">
-    <h1>Ch. 1</h1>
-    <h1>2023-10-18</h1>
-  </div>
-</section>
 
 <div class="d-flex mx-xl-5 p-3 text-white fw-bold chptr">
   <h1>For You</h1>
 </div>
 <section class="container d-flex justify-content-between text-white read-comic">
-  <div class="image-comic">
-    <a href="">
-      <img src="/asset/img/comic-1.svg" alt="" class="">
-    </a>
-    <h1>Darkman</h1>
-    <p>Action</p>
+  <div class="row justify-content-between">
+  
+    @foreach ($novels as $nvl)
+    @if ($nvl->id !== $novel->id)
+    <div class="col-lg-3 mb-3">
+  
+      <a href="/novels/{{ $nvl->id }}/{{ $nvl->genre->id }}">
+        <img src="{{ asset('storage/'.$nvl->image) }}" alt="" class="">
+      </a>
+      <h1>{{ $nvl->title }}</h1>
+      <p>{{ $nvl->genre->name }}</p>
+    </div>
+  @endif
+  @endforeach
   </div>
-  <div class="image-comic">
-    <a href="">
-      <img src="/asset/img/comic-2.svg" alt="" class="">
-    </a>
-    <h1>Darkman</h1>
-    <p>Action</p>
-  </div>
-  <div class="image-comic">
-    <a href="">
-      <img src="/asset/img/comic-3.svg" alt="" class="">
-    </a>
-    <h1>Darkman</h1>
-    <p>Action</p>
-  </div>
-  <div class="image-comic">
-    <a href="">
-      <img src="/asset/img/comic-4.svg" alt="" class="">
-    </a>
-    <h1>Darkman</h1>
-    <p>Action</p>
-  </div>
-</section>
-<section class="container d-flex justify-content-between pt-3 text-white read-comic">
-  <div class="image-comic">
-    <a href="">
-      <img src="/asset/img/comic-5.svg" alt="">
-    </a>
-    <h1>Darkman</h1>
-    <p>Action</p>
-  </div>
-  <div class="image-comic">
-    <a href="">
-      <img src="/asset/img/comic-6.svg" alt="">
-    </a>
-    <h1>Darkman</h1>
-    <p>Action</p>
-  </div>
-  <div class="image-comic">
-    <a href="">
-      <img src="/asset/img/comic-7.svg" alt="">
-    </a>
-    <h1>Darkman</h1>
-    <p>Action</p>
-  </div>
-  <div class="image-comic">
-    <a href="">
-      <img src="/asset/img/comic-8.svg" alt="">
-    </a>
-    <h1>Darkman</h1>
-    <p>Action</p>
-  </div>
+
 </section>
 <!-- END OF COMIC CARD SECTION -->
 

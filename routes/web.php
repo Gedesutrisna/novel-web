@@ -41,10 +41,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:admin'], function (
 }); 
 
 
-Route::get('/novels', [UserNovelController::class,'index']);
-Route::get('/novels/{novel}', [UserNovelController::class,'show']);
+Route::resource('/novels', UserNovelController::class);
+// Route::get('/novels', [UserNovelController::class,'index']);
+// Route::get('/novels/{id}', [UserNovelController::class,'show']);
 
-Route::get('/novels/{novel}/{episode}', [UserEpisodeController::class,'index']);
+Route::get('/novels/{novel}/{episode}', [UserEpisodeController::class,'show']);
 
 
 
