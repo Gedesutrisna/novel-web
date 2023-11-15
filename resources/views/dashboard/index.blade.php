@@ -36,9 +36,12 @@
                     <div class="box top d-flex flex-column">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <h1 class="stats">Weekly Visitors</h1>
-                            <div class="icon black rounded-circle">
-                                <img src="/assets/visitor-i.svg" alt="">
+                            <div class="">
+                                <div class="icon black rounded-circle">
+                                    <img src="/assets/visitor-i-active.svg" alt="">
+                                </div>
                             </div>
+                            
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <h1 class="num">{{ $users->count() }}</h1>
@@ -58,7 +61,7 @@
                                 <button class="main-btn active">Month</button>
                             </div>                          
                         </div>
-                        <canvas id="productChart" class="w-100" style="height: 300px;"></canvas>
+                        <canvas id="myChart" class="w-100" style="height: 300px;"></canvas>
                     </div>
                 </div>
             </div>
@@ -66,94 +69,84 @@
         <div class="col-lg-3">
             <div class="box h-100 d-flex flex-column">
                 <div class="">
-                    <h1 class="box-title">Top Sales</h1>  
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <div class="d-flex gap-2">
-                            <div class="icon second rounded-circle"><img src="/assets/product-i.svg" alt=""></div>
-                            <div class="">
-                                <p class="inbox-name custom">Hoodie Black</p>
-                                <div class="d-flex gap-1">
-                                    <p class="sale">+243 Sales</p>
-                                    <img src="/assets/dot.svg" alt="">
-                                    <img src="/assets/star.svg" alt="">
-                                    <p class="sale black">5</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="amount">+$123.000</p>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <div class="d-flex gap-2">
-                            <div class="icon second rounded-circle"><img src="/assets/product-i.svg" alt=""></div>
-                            <div class="">
-                                <p class="inbox-name custom">Hoodie Green</p>
-                                <div class="d-flex gap-1">
-                                    <p class="sale">+222 Sales</p>
-                                    <img src="/assets/dot.svg" alt="">
-                                    <img src="/assets/star.svg" alt="">
-                                    <p class="sale black">5</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="amount">+$121.000</p>
-                    </div>
-                </div>
-                <hr class="dash">
-                <div class="">
                     <h1 class="box-title">History</h1>  
+                    @foreach ($users as $user)
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <div class="d-flex gap-2">
                             <img src="/assets/profile1.svg" alt="">
                             <div class="">
-                                <p class="inbox-name custom">Jhon Doe</p>
-                                <p class="sale">1 Minutes Ago</p>
+                                <p class="inbox-name custom">{{ $user->name }}</p>
+                                <p class="sale">{{ $user->created_at->format('m/d/Y H:i'); }}</p>
                             </div>
                         </div>
-                        <p class="amount">+$123.000</p>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <div class="d-flex gap-2">
-                            <img src="/assets/profile2.svg" alt="">
-                            <div class="">
-                                <p class="inbox-name custom">Jane Smith</p>
-                                <p class="sale">2 Minutes Ago</p>
-                            </div>
-                        </div>
-                        <p class="amount">+$123.000</p>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <div class="d-flex gap-2">
-                            <img src="/assets/profile3.svg" alt="">
-                            <div class="">
-                                <p class="inbox-name custom">Mei Mei</p>
-                                <p class="sale">4 Minutes Ago</p>
-                            </div>
-                        </div>
-                        <p class="amount">+$123.000</p>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <div class="d-flex gap-2">
-                            <img src="/assets/profile4.svg" alt="">
-                            <div class="">
-                                <p class="inbox-name custom">Michael Lee</p>
-                                <p class="sale">8 Minutes Ago</p>
-                            </div>
-                        </div>
-                        <p class="amount">+$123.000</p>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <div class="d-flex gap-2">
-                            <img src="/assets/profile5.svg" alt="">
-                            <div class="">
-                                <p class="inbox-name custom">Sarah</p>
-                                <p class="sale">1 Hour Ago</p>
-                            </div>
-                        </div>
-                        <p class="amount">+$123.000</p>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 </section>
-@endsection
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ['Novels', 'Episodes', 'Users'],
+          datasets: [{
+              label: 'Amount',
+              data: [{{ $novels->count() }},{{ $episodes->count() }}, {{ $users->count() }}],
+              backgroundColor: [
+                  '#B9B9B9',
+                  '#EEE9DA',
+                  '#000000'
+              ],
+              borderRadius: 50,
+          }]
+      },
+      options: {
+          title: {
+              display: true,
+        text: 'Donate Chart'
+    },
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+        }
+  });
+      // Opsi konfigurasi untuk grafik
+      const options = {
+        responsive: false,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                grid: {
+                    display: false, // Hapus garis grid vertikal
+                },
+            },
+            y: {
+                grid: {
+                    display: true, // Tampilkan garis grid horizontal
+                },
+                ticks: {
+                    callback: function(value, index, values) {
+                        return '$' + value ; // Tambahkan teks di samping label dataranges
+                    },
+                },
+            }
+        },
+        plugins: {
+            legend: {
+                display: false, // Matikan tampilan default legend
+            }
+        }
+    };
+
+
+  </script>
+        @endsection

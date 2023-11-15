@@ -32,7 +32,8 @@
                             <input name="password" value="" type="password" placeholder="Enter your password" required>
                         </div>
                         <div class="button input-box">
-                            <input type="submit" value="Login">
+                            <input class="bttn
+                            " type="submit" value="Login">
                         </div>
                     </div>
                 </div>

@@ -4,8 +4,13 @@ namespace App\Models;
 
 use App\Models\Admin;
 use App\Models\Genre;
-use Cviebrock\EloquentSluggable\Sluggable;
+use App\Models\Rating;
+use App\Models\Review;
+use App\Models\Episode;
+use App\Models\Favorite;
+use App\Models\LikeNovel;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Novel extends Model
@@ -23,13 +28,13 @@ class Novel extends Model
     }
     public function likeNove()
     {
-        return $this->hasMany(LikeNove::class);
+        return $this->hasMany(LikeNovel::class);
     }
     public function favorite()
     {
         return $this->hasMany(Favorite::class);
     }
-    public function rating()
+    public function ratings()
     {
         return $this->hasMany(Rating::class);
     }
@@ -53,8 +58,20 @@ class Novel extends Model
 
         return $averageRating;
     }
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['genre'] ?? false, function ($query, $genre) {
+            return $query->whereHas('genre', function ($query) use ($genre) {
+                $query->where('name', $genre);
+            }
+            );
+        });
+    }
 
-
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
     public function sluggable(): array
     {
         return [

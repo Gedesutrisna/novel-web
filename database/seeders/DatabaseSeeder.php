@@ -8,7 +8,9 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Genre;
 use App\Models\Novel;
+use App\Models\Review;
 use App\Models\Episode;
+use App\Models\ReplyReview;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -43,6 +45,18 @@ class DatabaseSeeder extends Seeder
             'name' => 'Romance',
             'admin_id' => 1,
         ]);
+        Genre::create([
+            'name' => 'Adventure',
+            'admin_id' => 1,
+        ]);
+        Genre::create([
+            'name' => 'Fight',
+            'admin_id' => 1,
+        ]);
+        Genre::create([
+            'name' => 'Horor',
+            'admin_id' => 1,
+        ]);
         Novel::create([
             'title' => 'Naruto',
             'slug' => 'naruto',
@@ -61,7 +75,7 @@ class DatabaseSeeder extends Seeder
             'creator' => 'Khisimoto',
             'year_published' => $year_published,
             'admin_id' => 1,
-            'genre_id' => 1,
+            'genre_id' => 2,
         ]);
         Novel::create([
             'title' => 'Saruto',
@@ -71,7 +85,7 @@ class DatabaseSeeder extends Seeder
             'creator' => 'Khisimoto',
             'year_published' => $year_published,
             'admin_id' => 1,
-            'genre_id' => 1,
+            'genre_id' => 3,
         ]);
         Novel::create([
             'title' => 'yu gi oh',
@@ -81,7 +95,7 @@ class DatabaseSeeder extends Seeder
             'creator' => 'Khisimoto',
             'year_published' => $year_published,
             'admin_id' => 1,
-            'genre_id' => 1,
+            'genre_id' => 4,
         ]);
         Novel::create([
             'title' => 'dragon ball',
@@ -91,7 +105,7 @@ class DatabaseSeeder extends Seeder
             'creator' => 'Khisimoto',
             'year_published' => $year_published,
             'admin_id' => 1,
-            'genre_id' => 1,
+            'genre_id' => 5,
         ]);
         Novel::create([
             'title' => 'bleach',
@@ -147,7 +161,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Naruto EPS 1',
             'number' => '1',
             'release' => $year_published,
-            'file_pdf' => '/file_novel/pdf1.pdf',
+            'file_pdf' => '/file_novel/Laporan-PKL-2.pdf',
             'image' => '/episode/comic-chapter-1.svg',
             'novel_id' => 1,
             'admin_id' => 1,
@@ -214,6 +228,26 @@ class DatabaseSeeder extends Seeder
             'image' => '/episode/comic-chapter-8.svg',
             'novel_id' => 1,
             'admin_id' => 1,
+        ]);
+        Review::create([
+            'comment' => 'Komiknya bauk bli, niat bikin komik ga sii.',
+            'user_id' => 1,
+            'episode_id' => 1,
+        ]);
+        Review::create([
+            'comment' => 'Komiknya bauk bli, niat bikin komik ga sii.',
+            'user_id' => 1,
+            'episode_id' => 1,
+        ]);
+        Review::create([
+            'comment' => 'Komiknya bauk bli, niat bikin komik ga sii.',
+            'user_id' => 1,
+            'episode_id' => 1,
+        ]);
+        ReplyReview::create([
+            'comment' => 'Komiknya bauk bli, niat bikin komik ga sii.',
+            'user_id' => 1,
+            'review_id' => 1,
         ]);
     }
 }

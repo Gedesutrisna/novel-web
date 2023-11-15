@@ -182,3 +182,17 @@ body{
 .form-content label:hover{
     text-decoration: underline;
 }
+
+.container .close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 9px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.container .close i:hover{
+    color: #09B451;
+}

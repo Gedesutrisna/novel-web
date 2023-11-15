@@ -17,11 +17,11 @@ class Review extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function replyReview()
+    public function replyReviews()
     {
         return $this->hasMany(ReplyReview::class);
     }
-    public function dislikeLikeReview()
+    public function dislikeLikeReviews()
     {
         return $this->hasMany(DislikeLikeReview::class);
     }
