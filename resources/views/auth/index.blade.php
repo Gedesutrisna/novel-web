@@ -14,7 +14,7 @@
         <input type="checkbox" id="flip">
         <div class="cover">
             <div class="front">
-                <img src="/asset/img-1.jpg" alt="">
+                <img src="/asset/ff.jpg" alt="">
             </div>
             <div class="back">
                 <img class="backImg" src="/asset/img-2.jpg" alt="">

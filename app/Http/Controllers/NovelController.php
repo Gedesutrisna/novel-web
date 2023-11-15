@@ -14,7 +14,7 @@ class NovelController extends Controller
 {
     public function novel(){
         $novels = Novel::all();
-        $genres = Genre:: all();
+        $genres = Genre::all();
         return view('dashboard.novel.index', compact('novels', 'genres'));
     }
     public function show($id)
