@@ -34,6 +34,7 @@
                             <th>No</th>
                             <th>Name</th>
                             <th>Number</th>
+                            <th>Release</th>
                             <th>Image</th>
                              <!-- Genre -->
                             <th>File</th>
@@ -46,6 +47,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $eps->name }}</td>
                             <td>{{ $eps->number }}</td>
+                            <td>{{ $eps->release }}</td>
                             <td>
                                <img style="height: 100px;" src="{{asset('storage/'. $eps->image)}} " alt="">
                             </td>
@@ -85,6 +87,16 @@
                 <input type="text" class="form-control @error('number') is-invalid @enderror" id="number" name="number"
                 required autofocus value="{{ old('number', $eps->number) }}">
                 @error('number')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                @enderror
+              </div>
+              <div class="mb-3">
+                <label for="title" class="form-label">Release</label>
+                <input type="date" class="form-control @error('release') is-invalid @enderror" id="release" name="release"
+                required autofocus value="{{ old('release', $eps->release) }}">
+                @error('release')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>
@@ -214,7 +226,16 @@
                     </div>
                 @enderror
               </div>
-
+              <div class="mb-3">
+                <label for="title" class="form-label">Release</label>
+                <input type="date" class="form-control @error('release') is-invalid @enderror" id="release" name="release"
+                required autofocus value="{{ old('release') }}">
+                @error('release')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                @enderror
+              </div>
               
               <div class="mb-3">
                 <label for="image" class="form-label">File</label>

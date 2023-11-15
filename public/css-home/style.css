@@ -1,0 +1,445 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+ *{
+    font-family: 'Poppins', sans-serif;
+ }
+
+ body{
+   background-color: black !important;
+ }
+
+.navbar{
+   margin-top: 24px;
+   gap: 51px;
+}
+
+.title-web{
+color: #09B451;
+font-family: Poppins;
+font-size: 32.8px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.navbar-menu{
+   gap: 20px;
+}
+.navbar-menu p a{
+   color: white;
+   text-decoration: none;
+}
+
+.navbar-menu > p{
+color: #9F9292;
+text-align: center;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 48px; /* 300% */
+letter-spacing: -0.32px;
+padding-top: 10px;
+}
+
+
+
+
+.search{
+   width: 267px;
+   height: 50px;
+   border: none;
+   color: #747474;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 300;
+   line-height: normal;
+   outline: none;
+   border-radius: 10px;
+   background-color: #191919;
+   padding-left: 43px;
+
+}
+
+.img-search{
+   top: 32px;
+   margin-left: 14px;
+}
+
+.btn-navbar-1{
+   padding: 12px 24px;
+   border-radius: 5px;
+   background: #FFF;
+   color: #09B451;
+   border: none;
+   font-family: Poppins;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 20px; /* 125% */
+}
+
+
+.btn-navbar-2{
+   padding: 12px 24px;
+   border-radius: 5px;
+   background: #09B451;
+   border: none;
+   color: #FFF;
+   font-family: Poppins;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 20px;
+}
+
+/* Navbar End */
+
+/* Hero Start */
+.hero-section{
+   margin-top: 70px;
+}
+
+
+.main-genre{
+color: #BFBFBF;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+
+}
+
+.title-hero{
+color: #FFF;
+font-size: 44px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.rating-text{
+
+   color: #FFF;
+   font-family: Poppins;
+   font-size: 48px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: normal;
+}
+
+.rating-section{
+    margin-top: 200px;
+    margin-left: 120px !important;
+}
+
+.img-hero{
+   margin-top: 120px;
+}
+
+.right-main{
+   color: #BFBFBF;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.button-right-main1{
+   width: 126px;
+   padding: 9px 18px;
+   justify-content: center;
+   align-items: center;
+   gap: 8px;
+   border-radius: 5px;
+   background: #F90;
+   color: #000;
+   color: #000;
+   font-family: Poppins;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: normal;
+   border: none;
+   margin-top: 18px;
+}
+
+.button-right-main2{
+   border: none;
+   background-color: transparent;
+   color: #FFF;
+   margin-top: 20px;
+}
+/* Hero End */
+
+/* About start */
+.about-section{
+   margin-top: 150px;
+}
+
+.about-text{
+margin-top: 24px;
+color: #BFBFBF;
+font-family: Poppins;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.about-title{
+color: #FFF;
+font-family: Poppins;
+font-size: 48px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.button-about{
+   width: 126px;
+   padding: 9px 18px;
+   justify-content: center;
+   align-items: center;
+   gap: 8px;
+   border-radius: 5px;
+   background: #F90;
+   color: #000;
+   color: #000;
+   font-family: Poppins;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: normal;
+   border: none;
+   margin-top: 18px;
+}
+/* About end */
+
+
+/* Popular-comic start */
+
+.popular-comic{
+   margin-top: 100px;
+}
+
+.popular-text{
+color: #FFF;
+font-family: Poppins;
+font-size: 40px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.title-genre-comic{
+color: rgba(255, 255, 255, 0.80);
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.text-title-comic{
+color: #FFF;
+font-size: 40px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.publisher{
+margin-top: 16px;
+color: rgba(255, 255, 255, 0.90);
+font-family: Poppins;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.readmore{
+color: #09B451;
+font-family: Poppins;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+text-decoration: none;
+}
+
+.button-before{
+   background: transparent;
+   border: none !important;
+}
+
+.button-after{
+   background: transparent;
+   border: none !important;
+}
+
+
+/* Popular comic end */
+
+/* Popular Genre */
+.popular-genre{
+   margin-top: 100px;
+}
+
+.text-genre{
+color: #FFF;
+font-size: 28px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+width: 306px;
+}
+
+.banner{
+   height: 400px;
+   background: url('/asset-home/banner-bg.svg');
+   background: cover;
+   margin-top: 100px;  
+}
+
+.information-text{
+color: var(--White, #FFF);
+font-family: Poppins;
+font-size: 50px;
+font-style: normal;
+font-weight: 700;
+line-height: 78px;
+letter-spacing: 0.3px;
+}
+
+.text-wrapper-banner{
+   padding-top: 70px !important;
+}
+
+.wrapper-input{
+   width: 992px;
+   background-color: #FFF;
+   height: 82px;
+   border-radius: 8px;
+}
+
+.input-text{
+   height: 82px;
+   width: 694px;
+   border: none;
+   outline: none;
+   border-radius: 8px;
+   padding-left: 30px;
+}
+
+.button-search{
+   padding: 12px 30px;
+   margin: 15px 0;
+   margin-right: 30px;
+   background-color: #09B451;
+   border-radius: 8px;
+   color: var(--White, #FFF);
+   font-family: Poppins;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 22px; /* 137.5% */
+   letter-spacing: 0.3px;
+   border: none;
+   outline: none;
+}
+
+.line{
+   margin-right: 25px;
+}
+
+footer{
+   margin-top: 82px;
+}
+
+.text-title{
+   color: #FFF;
+   font-family: Poppins;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: normal;
+}
+
+.text-description{
+   color: var(--gray-background, #F8F8F8);
+   text-align: justify;
+   font-family: Poppins;
+   font-size: 13px;
+   font-style: normal;
+   font-weight: 400;
+   margin-top: 44px;
+}
+
+.genre-p > p {
+   color: #FFF;
+   font-family: Poppins;
+   font-size: 18.028px;
+   font-style: normal;
+   font-weight: 300;
+   line-height: 40.563px; /* 225% */
+}
+
+.resource-p > p{
+   color: #FFF;
+   font-family: Poppins;
+   font-size: 18.028px;
+   font-style: normal;
+   font-weight: 300;
+   line-height: 40.563px; /* 225% */
+}
+
+.komiweb-contact > div{
+   color: #FFF;
+   font-family: Poppins;
+   font-size: 18.028px;
+   font-style: normal;
+   font-weight: 300;
+   line-height: 40.563px; /* 225% */
+}
+/* Popular Genre */
+
+
+
+@media (max-width: 1280px) {
+
+   .navbar{
+      gap: 18px;
+   }
+   .title-hero{
+      font-size: 39px;
+   }
+   .text-hidden{
+      display:none !important;
+   }
+   .right-main-wrapper{
+      margin-left: 40px;
+   }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

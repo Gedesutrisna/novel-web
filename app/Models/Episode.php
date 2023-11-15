@@ -20,4 +20,8 @@ class Episode extends Model
     {
         return $this->belongsTo(Novel::class);
     }
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 }

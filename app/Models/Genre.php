@@ -16,7 +16,7 @@ class Genre extends Model
     {
         return $this->belongsTo(Admin::class);
     }
-    public function novel()
+    public function novels()
     {
         return $this->hasMany(Novel::class);
     }

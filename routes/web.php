@@ -7,8 +7,13 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\NovelController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EpisodeController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LikeDislikeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RatingController;
+use App\Http\Controllers\ReplyReviewController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\user\EpisodeController as UserEpisodeController;
 use App\Http\Controllers\user\NovelController as UserNovelController;
 
@@ -27,7 +32,7 @@ Route::get('/', [HomeController::class,'index']);
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:admin'], function () {
     Route::get('/', [DashboardController::class,'index']);
     Route::get('/novel', [NovelController::class,'novel']);
-    Route::get('/novel/{id}', [NovelController::class,'show']);
+    Route::get('/novel/{novel}', [NovelController::class,'show']);
     Route::post('/novel/show/create', [EpisodeController::class,'create'])->name('create.episode');
     Route::post('/novel/show/delete/{id}', [EpisodeController::class,'delete']);
     Route::post('/novel/show/update/{id}', [EpisodeController::class,'update'])->name('edit.episode');
@@ -47,7 +52,15 @@ Route::resource('/novels', UserNovelController::class);
 
 Route::get('/novels/{novel}/{episode}', [UserEpisodeController::class,'show']);
 
+Route::post('/reviews/create', [ReviewController::class, 'store'])->middleware('auth');
+Route::post('/replyreviews/create', [ReplyReviewController::class, 'store'])->middleware('auth');
 
+Route::post('/addFavorite/create', [FavoriteController::class, 'store'])->middleware('auth')->name('add.favorite');
+
+Route::post('/addLike', [LikeDislikeController::class, 'like'])->middleware('auth')->name('add.like');
+Route::post('/addDislike', [LikeDislikeController::class, 'dislike'])->middleware('auth')->name('add.dislike');
+
+Route::post('/rating', [RatingController::class, 'store'])->name('rating.store');
 
 Route::get('/login', [LoginController::class,'index'])->name('login')->middleware('guest');
 

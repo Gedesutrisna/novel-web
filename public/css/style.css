@@ -28,7 +28,7 @@
 }
 nav .nav-link.active{
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     font-family: Poppins;
     font-weight: 500;
     line-height: 21px;
@@ -37,7 +37,7 @@ nav .nav-link.active{
 }
 nav .nav-link.active:hover{
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     font-family: Poppins;
     font-weight: 500;
     line-height: 21px;
@@ -45,7 +45,7 @@ nav .nav-link.active:hover{
 }
 nav .nav-link{
     color: black;
-    font-size: 18px;
+    font-size: 16px;
     font-family: Poppins;
     font-weight: 500;
     line-height: 21px;
@@ -53,7 +53,7 @@ nav .nav-link{
 }
 nav .nav-link:hover{
     color: black;
-    font-size: 18px;
+    font-size: 16px;
     font-family: Poppins;
     font-weight: 500;
     line-height: 21px;

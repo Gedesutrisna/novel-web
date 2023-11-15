@@ -51,7 +51,7 @@
                             <td>{{ $novel->creator }}</td>
                             <td>{{ $novel->year_published }}</td>
                             <td>
-                              <a href="/dashboard/novel/{{ $novel->id }}" class="text-decoration-none">
+                              <a href="/dashboard/novel/{{ $novel->slug }}" class="text-decoration-none">
                                 <button class="btn label"><img src="/assets/eye-i.svg" alt=""></button>
                               </a>
                                 
