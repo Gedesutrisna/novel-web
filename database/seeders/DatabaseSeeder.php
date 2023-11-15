@@ -161,7 +161,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Naruto EPS 1',
             'number' => '1',
             'release' => $year_published,
-            'file_pdf' => '/file_novel/pdf1.pdf',
+            'file_pdf' => '/file_novel/Laporan-PKL-2.pdf',
             'image' => '/episode/comic-chapter-1.svg',
             'novel_id' => 1,
             'admin_id' => 1,

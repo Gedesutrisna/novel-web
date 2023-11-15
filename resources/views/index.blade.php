@@ -6,7 +6,14 @@
         <div class="row">
   
           <div class="col-4">
-            <p class="main-genre">Adventure,Fantasy,Genre,Genre</p>
+            
+            <p class="main-genre">
+              @foreach ($genres->take(4) as $genre)
+              {{ $genre->name }},
+                  
+              @endforeach
+            
+            </p>
             <p class="title-hero">Demon Slayer : <br> Kimetsu No Yaiba</p>
             <div class="d-flex rating-section">
               <div class="">

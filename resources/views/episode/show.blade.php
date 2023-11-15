@@ -17,20 +17,14 @@
     <section class="container">
         <div class="img w-100 d-flex justify-content-center">
             {{-- <img src="/asset/img/hero-coment.svg" alt="" class="w-100"> --}}
-            <iframe class="file-preview w-100" id="file-preview" src="{{ asset('storage/'.$episode->file_pdf) }}#toolbar=0" frameborder="0"></iframe>
+            <iframe class="file-preview" id="file-preview" src="{{ asset('storage/'.$episode->file_pdf) }}#toolbar=0" frameborder="0"></iframe>
         </div>
         <style>
             .file-preview{
                 height: 1200px;
+                width: 70%;
             }
-            #toolbar {
-    align-items: center;
-    background-color: var(--viewer-pdf-toolbar-background-color);
-    color: #fff;
-    height: var(--viewer-pdf-toolbar-height);
-    padding: 0 16px;
-    display: none;
-}
+
         </style>
     </section>
     <!-- END OF HERO COMMENT SECTION -->
