@@ -62,7 +62,7 @@
       </form>
       @else
 <div class="d-flex gap-2">
-    <a href="/register">
+    <a href="/login">
         <button class="btn-navbar-1">Register</button>
     </a>
   <a href="/login">

@@ -50,11 +50,12 @@
         </div>
         </form>
       {{-- <button type="button" class="btn btn-success">Read Now</button> --}}
-      <form action="/addFavorite/create" method="POST">
+      <form action="{{ route('wishlist.store') }}" id="add-wishlist-form" method="POST">
         @csrf
         <input type="hidden" name="novel_id" value="{{ $novel->id }}">
         <button type="submit" class="btn btn-light btn-fav">Favorite</button>
       </form>
+
     </div>
   </div>
 </div>
@@ -173,5 +174,29 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-
+<script>
+                      $(function() {
+    $('#add-wishlist-form').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: $(this).attr('action'),
+            method: $(this).attr('method'),
+            data: $(this).serialize(),
+            success: function(response) {
+                console.log(response);
+                if (response.status === 'success') {
+                    swal("Success!", response.message, "success");
+                    // Tambahkan logika untuk menambahkan tampilan wishlist baru
+                } else if (response.status === 'error') {
+                    swal("Error!", response.message, "error");
+                }
+            },
+            error: function(response) {
+                console.log(response);
+                swal("Error!", "Error adding to wishlist!", "error");
+            }
+        });
+    });
+});
+</script>
 @endsection

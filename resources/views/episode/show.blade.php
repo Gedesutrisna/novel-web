@@ -21,8 +21,9 @@
         </div>
         <style>
             .file-preview{
-                height: 1200px;
+                height: 600px;
                 width: 70%;
+            
             }
 
         </style>

@@ -13,6 +13,15 @@ class RatingController extends Controller
     {
         $validatedData = $request->validated();
         $validatedData['user_id'] = auth()->user()->id;
+        
+        $existingWishlist = Rating::where('user_id', $validatedData['user_id'])
+        ->where('novel_id', $validatedData['novel_id'])
+        ->first();
+if ($existingWishlist) {
+    return back()->with('error','LikeLikeReview Already Added!');
+    
+}
+if($request->grade == 0)
         Rating::create($validatedData);
         return back()->with('success','Reply Added Successfully!');
     }

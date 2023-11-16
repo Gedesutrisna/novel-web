@@ -55,7 +55,7 @@ Route::get('/novels/{novel}/{episode}', [UserEpisodeController::class,'show']);
 Route::post('/reviews/create', [ReviewController::class, 'store'])->middleware('auth');
 Route::post('/replyreviews/create', [ReplyReviewController::class, 'store'])->middleware('auth');
 
-Route::post('/addFavorite/create', [FavoriteController::class, 'store'])->middleware('auth')->name('add.favorite');
+Route::post('/addFavorite/create', [FavoriteController::class, 'store'])->middleware('auth')->name('wishlist.store');
 
 Route::post('/addLike', [LikeDislikeController::class, 'like'])->middleware('auth')->name('add.like');
 Route::post('/addDislike', [LikeDislikeController::class, 'dislike'])->middleware('auth')->name('add.dislike');
