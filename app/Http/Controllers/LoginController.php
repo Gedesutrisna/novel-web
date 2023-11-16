@@ -11,6 +11,9 @@ use App\Http\Requests\RegisterRequest;
 
 class LoginController extends Controller
 {
+    public function register(){
+        return view('auth.index');
+    }
     public function index()
     {
         return view('auth.index');
