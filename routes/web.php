@@ -62,9 +62,10 @@ Route::post('/addDislike', [LikeDislikeController::class, 'dislike'])->middlewar
 
 Route::post('/rating', [RatingController::class, 'store'])->name('rating.store');
 
-Route::get('/login', [LoginController::class,'index'])->name('login')->middleware('guest');
 
+Route::get('/register', [LoginController::class,'register'])->middleware('guest');
 Route::post('/register', [LoginController::class,'store'])->middleware('guest');
+Route::get('/login', [LoginController::class,'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']);
 

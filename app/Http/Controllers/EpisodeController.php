@@ -13,7 +13,6 @@ class EpisodeController extends Controller
 {
     public function create(Request $request)
     {
-
         $validated = $request->validate([
             "name"=> "required",
             "number"=> "required",
