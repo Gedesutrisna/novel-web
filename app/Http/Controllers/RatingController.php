@@ -18,11 +18,11 @@ class RatingController extends Controller
         ->where('novel_id', $validatedData['novel_id'])
         ->first();
 if ($existingWishlist) {
-    return back()->with('error','LikeLikeReview Already Added!');
+    return back()->with('error','Rating Already Added!');
     
 }
-if($request->grade == 0)
+if($request->grade != 0)
         Rating::create($validatedData);
-        return back()->with('success','Reply Added Successfully!');
+        return back()->with('success','Rating Added Successfully!');
     }
 }

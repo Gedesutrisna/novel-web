@@ -128,6 +128,7 @@
             </div>
             @endforeach
         </section>
+        
                     <script>
 const faqs = document.querySelectorAll(".faq");
 

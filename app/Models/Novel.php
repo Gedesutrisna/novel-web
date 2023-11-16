@@ -44,9 +44,9 @@ class Novel extends Model
     }
     public function averageRating($novelId)
     {
-        $reviews = Review::where('novel_id', $novelId)->where('rating', '!=', null)->get();
-        $totalReviews = $reviews->count();
-        $totalRating = $reviews->sum('rating');
+        $ratings = Rating::where('novel_id', $novelId)->where('grade', '!=', null)->get();
+        $totalReviews = $ratings->count();
+        $totalRating = $ratings->sum('grade');
 
         if ($totalReviews > 0) {
             $averageRating = $totalRating / $totalReviews;

@@ -12,7 +12,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(/asset/valo.jpg);
+    background: #111;
     padding: 30px;
 }
 
@@ -20,7 +20,7 @@ body{
     position: relative;
     max-width: 850px;
     width: 100%;
-    background: #9513e0;
+    background: #000;
     padding: 40px 30px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
     perspective: 2700px;
@@ -69,7 +69,7 @@ body{
 }
 
 .container .form-content{
-    /* box-shadow: 0 5px 10px rgba(0,0,0,0.2); */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 
 .container .form{
@@ -114,7 +114,7 @@ body{
 .form-content .input-box input{
     height: 100%;
     width: 100%;
-    background: #f1eeee;
+    background: #000;
     outline: none;
     border: none;
     padding: 0 30px;
@@ -132,8 +132,6 @@ body{
 .form-content .input-box i{
     position: absolute;;
     font-size: 17px;
-    color: black;
-    margin-left: 5px;
 }
 
 .form-content .text{

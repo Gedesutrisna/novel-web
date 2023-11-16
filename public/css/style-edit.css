@@ -1,0 +1,196 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* navbar start */
+.navbar{
+    margin-top: 24px;
+    gap: 20px;
+ }
+ 
+ .title-web{
+ color: #09B451;
+ font-family: Poppins;
+ font-size: 32.8px;
+ font-style: normal;
+ font-weight: 600;
+ line-height: normal;
+ }
+ 
+ .navbar-menu{
+    gap: 20px;
+ }
+ 
+ .navbar-menu > p{
+ color: #9F9292;
+ text-align: center;
+ font-family: Poppins;
+ font-size: 16px;
+ font-style: normal;
+ font-weight: 600;
+ line-height: 48px; /* 300% */
+ letter-spacing: -0.32px;
+ padding-top: 10px;
+ }
+ 
+ .search{
+    width: 267px;
+    height: 50px;
+    border: none;
+    color: #747474;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    outline: none;
+    border-radius: 10px;
+    background-color: #191919;
+    padding-left: 43px;
+
+ }
+
+ .btn-none{
+    background: none;
+    border: none;
+    padding: 0px;
+}
+.navbar-menu p a{
+color: white;
+text-decoration: none;
+}
+ 
+ .img-search{
+    top: 32px;
+    margin-left: 14px;
+ }
+ 
+ .btn-navbar-1{
+    padding: 12px 24px;
+    border-radius: 5px;
+    background: #FFF;
+    color: #09B451;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+ }
+ 
+ 
+ .btn-navbar-2{
+    padding: 12px 24px;
+    border-radius: 5px;
+    background: #09B451;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+ }
+/* navbar end */
+
+/* edit profil & sidebar start */
+.sidebar-profile h1{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.sidebar-btn a li{
+    color: white;
+    list-style: none;
+}
+.sidebar-btn a li button{
+    color: white;
+}
+
+.sidebar-btn a li:hover, .sidebar-btn a li button:hover{
+    background: #fff;
+    border-radius: 5px;
+    color: #000;
+}
+
+.sidebar-profile p{
+    font-size: 12px;
+}
+
+.sidebar-btn{
+    width: 60%;
+}
+
+.title-edit i:hover{
+    color: #09B451;
+}
+
+.title-edit h1{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.title-edit h2{
+    font-size: 15px;
+}
+
+
+.field-edit{
+    background: transparent !important;
+    outline: none !important;
+    border: none !important;
+    color: #fff;
+}
+
+.border-bottom{
+    color: #fff;
+}
+/* end edit profil & sidebar*/
+
+/* footer start */
+footer{
+    margin-top: 82px;
+ }
+ 
+ .text-title{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+ }
+ 
+ .text-description{
+    color: var(--gray-background, #F8F8F8);
+    text-align: justify;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 44px;
+ }
+ 
+ .genre-p > p {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18.028px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 40.563px; /* 225% */
+ }
+ 
+ .resource-p > p{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18.028px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 40.563px; /* 225% */
+ }
+ 
+ .komiweb-contact > div{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18.028px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 40.563px; /* 225% */
+ }
+/* footer end */

@@ -11,6 +11,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeDislikeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ReplyReviewController;
 use App\Http\Controllers\ReviewController;
@@ -50,12 +51,19 @@ Route::resource('/novels', UserNovelController::class);
 // Route::get('/novels', [UserNovelController::class,'index']);
 // Route::get('/novels/{id}', [UserNovelController::class,'show']);
 
+Route::get('/profiles', [ProfileController::class,'index']);
+Route::get('/profiles/edit', [ProfileController::class,'edit']);
+Route::put('/profiles/update/', [ProfileController::class,'update']);
+
+
 Route::get('/novels/{novel}/{episode}', [UserEpisodeController::class,'show']);
 
 Route::post('/reviews/create', [ReviewController::class, 'store'])->middleware('auth');
 Route::post('/replyreviews/create', [ReplyReviewController::class, 'store'])->middleware('auth');
 
 Route::post('/addFavorite/create', [FavoriteController::class, 'store'])->middleware('auth')->name('wishlist.store');
+Route::resource('/favorite', FavoriteController::class)->middleware('auth');
+
 
 Route::post('/addLike', [LikeDislikeController::class, 'like'])->middleware('auth')->name('add.like');
 Route::post('/addDislike', [LikeDislikeController::class, 'dislike'])->middleware('auth')->name('add.dislike');

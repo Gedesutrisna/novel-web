@@ -19,12 +19,9 @@
       <div class="img-search position-absolute"><img src="/asset/Vector.svg" alt=""></div>
     </div>
 @if (auth()->check())
-<form action="/logout" role="search" method="POST">
-  @csrf
-  <button type="submit" class="btn-none">
-    <img src="/asset-home/login.svg" alt="">
-
-  </button>
+<a href="/profiles">
+  <img src="/asset-home/login.svg" alt="">
+</a>
 </form>
 @else
 <div class="d-flex gap-2">

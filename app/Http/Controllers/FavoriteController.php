@@ -58,5 +58,10 @@ public function store(Request $request)
     }
     return back()->with('success', 'Favorite successfully added!');
 }
+public function destroy(Favorite $favorite)
+{
+    $favorite->delete();
+    return back()->with('success','Favorite Deleted Successfully!');
+}
 
 }

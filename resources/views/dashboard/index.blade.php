@@ -13,7 +13,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <h1 class="num white">{{ $novels->count() }}</h1>
+                            <h1 class="num white"f>{{ $novels->count() }}</h1>
                             <p class="tren white mb-0">+20%</p>
                         </div>
                     </div>

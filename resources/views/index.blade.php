@@ -86,16 +86,16 @@
           <p class="title-genre-comic">{{ $novel->genre->name }}</p>
           <p class="text-uppercase text-title-comic">{{ $novel->title }}</p>
           <div class="d-flex gap-2">
-            @foreach ($novel->ratings as $index => $rating)
             
-                
             @for ($i = 1; $i <= 5; $i++)
-            @if ($i <= $rating->grade)
+            @if ($i <= $novel->averageRating($novel->id))
             <img src="/asset-home/star.svg" alt="">
             @else
             @endif
             @endfor
-            @endforeach
+            {{-- <p class="text-description">
+              {{  $novel->averageRating($novel->id) }}
+            </p> --}}
           </div>
           <p class="publisher">{{ $novel->creator }}</p>
         <a href="/novels/{{ $novel->slug }}" class="readmore">Read more <span class="ms-2"><img src="/asset-home/Icon-button.svg" alt=""></span></a>
