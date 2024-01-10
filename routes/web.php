@@ -34,16 +34,19 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:admin'], function (
     Route::get('/', [DashboardController::class,'index']);
     Route::get('/novel', [NovelController::class,'novel']);
     Route::get('/novel/{novel}', [NovelController::class,'show']);
+
     Route::post('/novel/show/create', [EpisodeController::class,'create'])->name('create.episode');
-    Route::post('/novel/show/delete/{id}', [EpisodeController::class,'delete']);
-    Route::post('/novel/show/update/{id}', [EpisodeController::class,'update'])->name('edit.episode');
+    Route::put('/novel/show/update/{id}', [EpisodeController::class,'update'])->name('edit.episode');
+    Route::delete('/novel/show/delete/{id}', [EpisodeController::class,'delete']);
+
     Route::post('/novel/create', [NovelController::class,'create'])->name('create.novel');
-    Route::post('/novel/delete/{id}', [NovelController::class,'delete']);
-    Route::post('/novel/update/{id}', [NovelController::class,'update']);
+    Route::put('/novel/update/{id}', [NovelController::class,'update']);
+    Route::delete('/novel/delete/{id}', [NovelController::class,'delete']);
+
     Route::get('/genre', [GenreController::class,'genre']);
     Route::post('/genre/create', [GenreController::class,'create'])->name('create.genre');
-    Route::post('/genre/delete/{id}', [GenreController::class,'delete']);
-    Route::post('/genre/update/{id}', [GenreController::class,'update']);
+    Route::put('/genre/update/{id}', [GenreController::class,'update'])->name('update.genre');
+    Route::delete('/genre/delete/{id}', [GenreController::class,'delete'])->name('delete.genre');
 }); 
 
 

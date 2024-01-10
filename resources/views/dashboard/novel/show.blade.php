@@ -70,7 +70,9 @@
       <div class="modal-body">
       <!-- FORM EDIT -->
         <form method="POST" action="/dashboard/novel/show/update/{{$eps->id}}"  enctype="multipart/form-data">
+          @method('put')
           @csrf
+
           <div class="mb-3">
                 <label for="title" class="form-label">Name</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="title" name="name"
@@ -177,6 +179,8 @@
 <button type="button" class="main-btn" data-bs-dismiss="modal"><i class="bi bi-x"></i></button>
 
 <form action="/dashboard/novel/show/delete/{{$eps->id}}" method="POST" class="d-inline mb-0">
+  @method('delete')
+
 @csrf
 <button type="submit" class="main-btn active">Delete Data</button>
 </form>

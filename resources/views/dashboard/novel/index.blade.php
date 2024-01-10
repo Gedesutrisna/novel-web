@@ -66,6 +66,7 @@
       <div class="modal-body">
       <!-- FORM EDIT -->
         <form method="POST" action="/dashboard/novel/update/{{ $novel->id }}"  enctype="multipart/form-data">
+          @method('put')
           @csrf
           <div class="mb-3">
               <label for="title" class="form-label">Title</label>
@@ -178,6 +179,8 @@
 <button type="button" class="main-btn" data-bs-dismiss="modal"><i class="bi bi-x"></i></button>
 
 <form action="/dashboard/novel/delete/{{ $novel->id }}" method="POST" class="d-inline mb-0">
+  @method('delete')
+
 @csrf
 <button type="submit" class="main-btn active">Delete Data</button>
 </form>

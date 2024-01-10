@@ -65,12 +65,8 @@ class NovelController extends Controller
         
         $novels = Novel::findorfail($id);
 
-        if($request->file('image')){
-            $validatedData['image'] = $request->file('image')->store('novel');
-            if($novels->image){
-                Storage::delete($novels->image);
-            }
-        }
+        $data = $request->file('image') ? $request->file('image')->store('novel') : $novels->image;
+
         $post =[
             'title' => $request['title'],
             'slug' => $request['slug'],
@@ -79,7 +75,7 @@ class NovelController extends Controller
             'year_published' => $request['year_published'],
             'admin_id' => Auth::guard('admin')->user()->id,
             'genre_id' => $request['genre_id'],
-            'image' =>  $validatedData['image'],
+            'image' =>  $data,
         ];
        
         $novels->update($post);

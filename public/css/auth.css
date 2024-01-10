@@ -194,3 +194,8 @@ body{
 .container .close i:hover{
     color: #09B451;
 }
+.back-to{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}

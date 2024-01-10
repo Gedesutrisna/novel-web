@@ -41,9 +41,6 @@
       <div class="navbar-menu d-flex gap-4 mx-3">
         <p><a href="/"> Home</p></a>
         <p><a href="/novels"> Comic</p></a>
-        <p><a href="/"> Genre List</p></a>
-        <p><a href="/"> Popular</p></a>
-        <p><a href="/"> Contact Us</p></a>
       </div>
 
       <div class="search-bar mx-5">

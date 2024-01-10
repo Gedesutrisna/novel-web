@@ -8,6 +8,11 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+    <a href="/" class="text-decoration-none">
+        <div class="back-to">
+           <img src="/asset-home/button-before.svg" alt="">
+        </div>
+    </a>
     <div class="container">
         @include('sweetalert::alert')
 

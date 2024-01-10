@@ -48,6 +48,7 @@
       <div class="modal-body">
       <!-- FORM EDIT -->
         <form method="POST" action="/dashboard/genre/update/{{ $genre->id }}"  enctype="multipart/form-data">
+          @method('put')
           @csrf
           <div class="mb-3">
               <label for="name" class="form-label">Title</label>
@@ -70,6 +71,7 @@
     </div>
   </div>
 </div>
+{{-- <a href="{{ route('delete.genre', $genre->id) }}" type="submit" class="btn btn-danger" data-confirm-delete="true"><i class="bi bi-pen"></i></a> --}}
 
                                 <button class="btn label" data-bs-toggle="modal" data-bs-target="#exampleModal3-{{ $genre->id }}"><img src="/assets/trash-i.svg" alt=""></button>
                                 <!-- Modal -->
@@ -84,6 +86,7 @@
 <button type="button" class="main-btn" data-bs-dismiss="modal"><i class="bi bi-x"></i></button>
 
 <form action="/dashboard/genre/delete/{{ $genre->id }}" method="POST" class="d-inline mb-0">
+  @method('delete')
 @csrf
 <button type="submit" class="main-btn active">Delete Data</button>
 </form>

@@ -51,7 +51,7 @@
   
       <section class="about-section container">
         <div class="row">
-        <div class="col-6">
+        <div class="col-6" data-aos="fade-right" data-aos-delay="200">
           <h1 class="about-title">About Our Project</h1>
           <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, 
           </p>
