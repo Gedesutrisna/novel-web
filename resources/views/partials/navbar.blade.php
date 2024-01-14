@@ -1,7 +1,9 @@
 <nav class="navbar d-flex justify-content-between container align-content-center align-items-center">
 
     <div class="wrapper">
+      <a href="/" class="text-decoration-none">
         <p class="title-web">Komiweb</p>
+      </a>
     </div>
 
     <div class="navbar-menu d-flex">

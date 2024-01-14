@@ -20,6 +20,6 @@ class ProfileController extends Controller
         $validatedData = $request->validated();
         $validatedData['id'] = auth()->user()->id;
         auth()->user()->update($validatedData);
-        return back()->with('success','Profile Update Successfully!');
+        return back()->with('toast_success','Profile Update Successfully!');
     }
 }

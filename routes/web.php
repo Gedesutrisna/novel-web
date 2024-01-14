@@ -54,24 +54,26 @@ Route::resource('/novels', UserNovelController::class);
 // Route::get('/novels', [UserNovelController::class,'index']);
 // Route::get('/novels/{id}', [UserNovelController::class,'show']);
 
+Route::group(['middleware' => 'auth'], function () {
 Route::get('/profiles', [ProfileController::class,'index']);
 Route::get('/profiles/edit', [ProfileController::class,'edit']);
 Route::put('/profiles/update/', [ProfileController::class,'update']);
 
+Route::post('/reviews/create', [ReviewController::class, 'store']);
+Route::post('/replyreviews/create', [ReplyReviewController::class, 'store']);
+
+Route::post('/addFavorite/create', [FavoriteController::class, 'store'])->name('wishlist.store');
+Route::resource('/favorite', FavoriteController::class);
+
+
+Route::post('/addLike', [LikeDislikeController::class, 'like'])->name('add.like');
+Route::post('/addDislike', [LikeDislikeController::class, 'dislike'])->name('add.dislike');
+
+Route::post('/rating', [RatingController::class, 'store'])->name('rating.store');
+});
 
 Route::get('/novels/{novel}/{episode}', [UserEpisodeController::class,'show']);
 
-Route::post('/reviews/create', [ReviewController::class, 'store'])->middleware('auth');
-Route::post('/replyreviews/create', [ReplyReviewController::class, 'store'])->middleware('auth');
-
-Route::post('/addFavorite/create', [FavoriteController::class, 'store'])->middleware('auth')->name('wishlist.store');
-Route::resource('/favorite', FavoriteController::class)->middleware('auth');
-
-
-Route::post('/addLike', [LikeDislikeController::class, 'like'])->middleware('auth')->name('add.like');
-Route::post('/addDislike', [LikeDislikeController::class, 'dislike'])->middleware('auth')->name('add.dislike');
-
-Route::post('/rating', [RatingController::class, 'store'])->name('rating.store');
 
 
 Route::get('/register', [LoginController::class,'register'])->middleware('guest');

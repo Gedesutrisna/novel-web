@@ -13,6 +13,9 @@ class LoginController extends Controller
 {
     public function index()
     {
+        if(Auth::user()){
+            return view('index');
+        }
         return view('auth.admin.index');
     }
     public function login(LoginRequest $request)
@@ -21,9 +24,9 @@ class LoginController extends Controller
         if(Auth::guard('admin')->attempt($credentials))
         {
             $request->session()->regenerate();
-            return redirect('/dashboard')->with('success', 'Login Successfuly');
+            return redirect('/dashboard')->with('toast_success', 'Login Successfuly');
         }
-        return back()->with('error', 'Login Failed');
+        return back()->with('toast_error', 'Login Failed');
     }
     public function logout(Request $request)
     {

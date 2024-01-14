@@ -123,7 +123,7 @@
                                 </form>
                             </div>
                         </section>
-                        @forea ch ($review->replyReviews as $replyReview)
+                        @foreach ($review->replyReviews as $replyReview)
                             <div class="mx-lg-5">
                                 <h1>{{ $replyReview->user->name }}</h1>
                                 <p>{{ $replyReview->comment }}</p>

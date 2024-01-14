@@ -1,18 +1,14 @@
 @extends('layouts.main-home')
 @section('container')
-    <!-- Hero Start -->
-    <main class="hero-section container">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
+    <main class="hero-section container">
         <div class="row">
-  
           <div class="col-4">
-            
             <p class="main-genre">
               @foreach ($genres->take(4) as $genre)
               {{ $genre->name }},
-                  
               @endforeach
-            
             </p>
             <p class="title-hero">Demon Slayer : <br> Kimetsu No Yaiba</p>
             <div class="d-flex rating-section">
@@ -80,7 +76,7 @@
           
       <div class="swiper-slide">
         <div class="d-flex">
-          <div class=""><img src="{{ asset('storage/' . $novel->image) }}" alt=""></div>
+          <div class=""><img src="{{ asset('storage/' . $novel->image) }}" alt="" class="w-100"></div>
           <div class="d-flex align-items-center">
               <div class="d-block ms-4">
           <p class="title-genre-comic">{{ $novel->genre->name }}</p>
@@ -140,7 +136,7 @@
       @foreach ($genres as $genre)
           
       <div class="swiper-slide wrapper-popular text-center">
-          <img src="{{ asset('storage/'. $genre->novels->first()->image) }}" alt="">
+          <img src="{{ asset('storage/'. $genre->novels->first()->image) }}" alt="" class="w-100">
           <div class="">
               <p class="text-genre text-center mt-2 ms-4">{{ $genre->name }}</p>
             </div>
@@ -166,4 +162,17 @@
   </div>
   </section>
   
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  @if(session('toast_success'))
+<script>
+    // Tampilkan SweetAlert dengan pesan sukses
+    Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: '{{ session('toast_success') }}',
+        timer: 3000 // Atur timer 3000 milidetik (3 detik)
+    });
+    
+</script>
+@endif
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\LoginRequest;
@@ -12,10 +13,16 @@ use App\Http\Requests\RegisterRequest;
 class LoginController extends Controller
 {
     public function register(){
+        if(Auth::user()){
+            return view('index');
+        }
         return view('auth.index');
     }
     public function index()
     {
+        if(Auth::check()){
+            return view('index');
+        }
         return view('auth.index');
     }
     public function login(LoginRequest $request)
@@ -24,9 +31,9 @@ class LoginController extends Controller
         if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
-            return back()->with('success', 'Login Successfuly');
+            return back()->with('toast_success', 'Login Successfuly');
         }
-        return back()->with('success', 'Login Failed');
+        return back()->with('toast_error', 'Login Failed');
     }
     public function logout(Request $request)
     {
@@ -40,6 +47,18 @@ class LoginController extends Controller
         $validatedData = $request->validated();
         $validatedData['password'] = bcrypt($validatedData['password']);
         User::create($validatedData);
-        return back()->with('success','Register Successfuly');
+        return back()->with('toast_success','Register Successfuly');
+    }
+    
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user instanceof User) {
+            return redirect()->route('/');
+        } elseif ($user instanceof Admin) {
+            return redirect()->route('/dashboard');
+        }
+
+        // Default redirection
+        return redirect('/');
     }
 }
