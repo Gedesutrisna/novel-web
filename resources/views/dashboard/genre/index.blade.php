@@ -27,6 +27,7 @@
                         <tr>
                             <th>No</th>
                             <th>Name</th>
+                            <th>Description</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -35,6 +36,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $genre->name }}</td>
+                            <td>{{ $genre->description }}</td>
                             <td>
                                 
                                 <button class="btn label" data-bs-toggle="modal" data-bs-target="#exampleModal2-{{ $genre->id }}"><img src="/assets/pen-i.svg" alt=""></button>
@@ -51,10 +53,20 @@
           @method('put')
           @csrf
           <div class="mb-3">
-              <label for="name" class="form-label">Title</label>
+              <label for="name" class="form-label">Name</label>
               <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
               required autofocus value="{{ old('name', $genre->name) }}">
               @error('name')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+              @enderror
+            </div>
+          <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <input type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description"
+              required autofocus value="{{ old('description', $genre->description) }}">
+              @error('description')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -119,6 +131,16 @@
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                 required autofocus value="{{ old('name') }}">
                 @error('name')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                @enderror
+              </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description"
+                required autofocus value="{{ old('description') }}">
+                @error('description')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>

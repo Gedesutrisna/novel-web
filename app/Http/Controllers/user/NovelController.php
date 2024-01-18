@@ -15,11 +15,12 @@ class NovelController extends Controller
 {
     public function index(){
         // $novels = Novel::all();
-        $novels = Novel::with(['genre'])->latest()->filter(request(['genre']))->Paginate(6)->withQueryString();
+        $novels = Novel::with(['genre'])->latest()->filter(request(['search','genre']))->Paginate(6)->withQueryString();
 
         // $novels = Novel::all()->take(6);
         $genres = Genre:: all();
         return view('novel.index', compact('novels', 'genres'));
+        
     }
     public function show(Novel $novel)
     {

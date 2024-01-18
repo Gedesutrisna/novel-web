@@ -40,28 +40,88 @@ class DatabaseSeeder extends Seeder
         Genre::create([
             'name' => 'Action',
             'admin_id' => 1,
+            'description' => "Feel the tension during fighting scene",
         ]);
         Genre::create([
             'name' => 'Romance',
             'admin_id' => 1,
+            'description' => "Enjoy the drama fell the sensation",
         ]);
         Genre::create([
             'name' => 'Adventure',
             'admin_id' => 1,
+            'description' => "Feel the tension during fighting scene",
         ]);
         Genre::create([
-            'name' => 'Fight',
+            'name' => 'Martial Arts',
             'admin_id' => 1,
+            'description' => "Discover wonder during adventure",
+        ]);
+        Genre::create([
+            'name' => 'Sport',
+            'admin_id' => 1,
+            'description' => "Focuses on stories involving sports and other ",
         ]);
         Genre::create([
             'name' => 'Horor',
             'admin_id' => 1,
+            'description' => "Enjoy the  fell of fear and scare of manga",
+        ]);
+        Genre::create([
+            'name' => 'Comedy',
+            'admin_id' => 1,
+            'description' => "Immerse, imagine, and inspire",
+        ]);
+        Genre::create([
+            'name' => 'Family',
+            'admin_id' => 1,
+            'description' => "Fell the harm about family manga",
+        ]);
+        Novel::create([
+            'title' => 'Ayashimon',
+            'slug' => 'Ayashimon',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga minus eaque! Odit illo inventore sit.',
+            'image' => '/novel/komik1.svg',
+            'creator' => 'Khisimoto',
+            'year_published' => $year_published,
+            'admin_id' => 1,
+            'genre_id' => 1,
+        ]);
+        Novel::create([
+            'title' => 'Blue Lock',
+            'slug' => 'blue-lock',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga ',
+            'image' => '/novel/komik2.svg',
+            'creator' => 'Khisimoto',
+            'year_published' => $year_published,
+            'admin_id' => 1,
+            'genre_id' => 2,
+        ]);
+        Novel::create([
+            'title' => 'Chainsaw Man',
+            'slug' => 'chainsaw-man',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga minus eaque! Odit illo ',
+            'image' => '/novel/komik3.svg',
+            'creator' => 'Khisimoto',
+            'year_published' => $year_published,
+            'admin_id' => 1,
+            'genre_id' => 3,
+        ]);
+        Novel::create([
+            'title' => 'Mob Phsyic',
+            'slug' => 'Mob-Phsyic',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga minus eaque! Odit illo ',
+            'image' => '/novel/komik4.svg',
+            'creator' => 'Khisimoto',
+            'year_published' => $year_published,
+            'admin_id' => 1,
+            'genre_id' => 4,
         ]);
         Novel::create([
             'title' => 'Naruto',
             'slug' => 'naruto',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iure praesentium consequuntur non ut atque sunt incidunt porro voluptate delectus, maiores inventore libero fuga minus eaque! Odit illo inventore sit.',
-            'image' => '/novel/comic-1.svg',
+            'image' => '/novel/Popular-1.svg',
             'creator' => 'Khisimoto',
             'year_published' => $year_published,
             'admin_id' => 1,

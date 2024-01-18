@@ -60,6 +60,11 @@ class Novel extends Model
     }
     public function scopeFilter($query, array $filters)
     {
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            return $query->where('title', 'like', '%' . $search . '%')
+                ->orWhere('creator', 'like', '%' . $search . '%');
+        });
+
         $query->when($filters['genre'] ?? false, function ($query, $genre) {
             return $query->whereHas('genre', function ($query) use ($genre) {
                 $query->where('name', $genre);
@@ -67,7 +72,6 @@ class Novel extends Model
             );
         });
     }
-
     public function getRouteKeyName()
     {
         return 'slug';

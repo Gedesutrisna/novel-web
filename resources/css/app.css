@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input-text {
+    @apply text-base font-normal text-white;
+  }
+
+  .hero-section{
+    @apply mt-[44px]
+  }
+
+  .New-Released-Comic{
+    @apply mt-[100px]
+  }
+
+  .Genre-list{
+    @apply mt-[100px]
+  }
+
+  .Popular-Comics{
+    @apply mt-[100px]
+  }
+  
+  .Contact-Us{
+    @apply mt-[100px]
+  }
+
+
+  @keyframes verticalMove {
+    0% {
+      transform: translateY(0);
+    }
+    
+    50% {
+      transform: translateY(-10px);
+      transition-timing-function: ease-in-out; 
+    }
+    
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .img-hero{
+    animation: verticalMove 2s infinite;
+    transition: transform 0.5s; 
+  }

@@ -44,11 +44,16 @@
       </div>
 
       <div class="search-bar mx-5">
-        <div class="position-relative">
-          <input type="text" placeholder="Search your comic." class="search">
+          <div class="position-relative">
+            <form action="/novels" method="get" style="display: inline-block;">
+              @if (request('genre'))
+              <input type="hidden" name="genre" value="{{ request('genre') }}" >
+          @endif 
+          <input type="text" placeholder="Search your comic." name="search" class="search">
+            </form>
+          </div>
+          <div class="img-search position-absolute"><img src="/asset/Vector.svg" alt=""></div>
         </div>
-        <div class="img-search position-absolute"><img src="/assets/Vector.svg" alt=""></div>
-      </div>
       @if (auth()->check())
       <a href="/profiles">
         <img src="/asset-home/login.svg" alt="">

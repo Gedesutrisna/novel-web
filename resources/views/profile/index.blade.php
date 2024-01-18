@@ -32,7 +32,7 @@
         </div>
     @if (auth()->check())
     <a href="/profiles">
-      <img src="/asset-home/login.svg" alt="">
+      <img src="/asset-home/profile-page.svg" alt="">
     </a>
     </form>
     @else
