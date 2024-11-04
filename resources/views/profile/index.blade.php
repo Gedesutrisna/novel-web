@@ -9,6 +9,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body class="bg-black">
+    @include('sweetalert::alert')
+
     <!-- NAVBAR SECTION -->
     <nav class="navbar d-flex justify-content-between container align-content-center align-items-center">
 

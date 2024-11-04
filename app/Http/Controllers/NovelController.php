@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Genre;
 use App\Models\Novel;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Routing\Controller;
@@ -33,13 +34,14 @@ class NovelController extends Controller
         $valdatedData['admin_id'] = Auth::guard('admin')->user()->id;
         
         if($request->file('image')){
-            $valdatedData['image'] = $request->file('image')->store('novel');
+            
+            $filename = time() . '-' . Str::random(10) . '.' . $request->image->getClientOriginalExtension();
+            
+            $request->image->move("uploads/novel", $filename);
+            $valdatedData['image'] = $filename;
         }
-        
         $novels = Novel::create($valdatedData);
-        $genres = Genre::all();
-      
-    
+        $genres = Genre::all();    
 
         return back()->with('success', 'Data Berhasil Ditambahkan')
         ;

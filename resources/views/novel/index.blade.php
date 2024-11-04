@@ -35,7 +35,7 @@
             
     <!-- Navbar Start -->
 
-    <nav class="ms-5 container navbar d-flex justify-content-start container align-content-center align-items-center">
+    <nav class=" container navbar d-flex justify-content-between container align-content-center align-items-center">
 
 
       <div class="navbar-menu d-flex gap-4 mx-3">
@@ -43,7 +43,7 @@
         <p><a href="/novels"> Comic</p></a>
       </div>
 
-      <div class="search-bar mx-5">
+      <div class="search-bar">
           <div class="position-relative">
             <form action="/novels" method="get" style="display: inline-block;">
               @if (request('genre'))
@@ -55,8 +55,8 @@
           <div class="img-search position-absolute"><img src="/asset/Vector.svg" alt=""></div>
         </div>
       @if (auth()->check())
-      <a href="/profiles">
-        <img src="/asset-home/login.svg" alt="">
+      <a href="/profiles" class="me-5">
+        <img src="/asset-home/profile-page.svg" alt="">
       </a>
       @else
 <div class="d-flex gap-2">

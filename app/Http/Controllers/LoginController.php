@@ -31,9 +31,9 @@ class LoginController extends Controller
         if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
-            return back()->with('toast_success', 'Login Successfuly');
+            return back()->with('success', 'Login Successfuly');
         }
-        return back()->with('toast_error', 'Login Failed');
+        return back()->with('error', 'Login Failed');
     }
     public function logout(Request $request)
     {
@@ -47,7 +47,7 @@ class LoginController extends Controller
         $validatedData = $request->validated();
         $validatedData['password'] = bcrypt($validatedData['password']);
         User::create($validatedData);
-        return back()->with('toast_success','Register Successfuly');
+        return back()->with('success','Register Successfuly');
     }
     
     protected function authenticated(Request $request, $user)

@@ -15,11 +15,17 @@ class ProfileController extends Controller
     public function edit(){
         return view('profile.edit');
     }
-    public function update(ProfileRequest $request, User $user)
+    public function update(Request $request, User $user)
     {
-        $validatedData = $request->validated();
+        $validatedData = $request->validate([
+            'name' => 'nullable|string',
+            'email' => 'nullable|string',
+            'password' => 'nullable|string',
+        ]);
+        $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['id'] = auth()->user()->id;
+
         auth()->user()->update($validatedData);
-        return back()->with('toast_success','Profile Update Successfully!');
+        return back()->with('success','Profile Update Successfully!');
     }
 }

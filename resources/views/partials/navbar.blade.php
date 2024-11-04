@@ -10,9 +10,9 @@
       <!-- Navbar Links (Hidden on small screens) -->
       <ul class="hidden lg:flex ms-[51px] space-x-[32px] font-Poppins text-[18px] text-[#9F9292] font-semibold">
         <li><a href="/">Home</li></a>
-        <li><a href="/">Comic</li></a>
+        <li><a href="/novels">Comic</li></a>
         <li><a href="/">Genre List</li></a>
-        <li><a href="/">Contact Us</li></a>
+        <li><a href="#contact">Contact Us</li></a>
       </ul>
 
       

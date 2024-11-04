@@ -19,7 +19,7 @@
         @include('sweetalert::alert')
         @yield('container')
     </main>
-    @include('partials.footer')
+    {{-- @include('partials.footer') --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/js-home/script.js"></script>
     <script>

@@ -91,7 +91,9 @@
     <div class="grid place-items-center xl:place-items-start grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-11 gap-10">
     @foreach ($novels->take(5) as $novel)
     <div class="Card-1 w-[212px] h-[310px]" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500" data-aos-once="true">
-      <img class="w-[212px] h-[310px]" src="{{ asset('storage/' . $novel->image) }}" alt="">
+      <a href="/novels/{{ $novel->slug }}">
+        <img class="w-[212px] h-[310px]" src="{{ asset('storage/' . $novel->image) }}" alt="">
+      </a>
     </div>
     @endforeach
 
@@ -100,7 +102,7 @@
   </div>  
 </section>
 
-<section class="Contact-Us">
+<section class="Contact-Us" id="contact">
   <div class="container mx-auto">
     <div class="xl:grid xl:grid-cols-12">
       <div class="col-span-6">
@@ -127,5 +129,50 @@
     </div>
   </div>
 </section>
+<footer class="bg-black h-full pb-10 mt-[100px]">
+  <div class="container mx-auto">
+      <div class="grid grid-cols-1 xl:grid-cols-4 pt-[50px]">
 
+          <div class="">
+              <h1 class=""><img src="/asset/Logo.svg" alt=""></h1>
+              <div class="text-white text-base font-Poppins font-normal space-y-[24px] pt-[24px]">
+                  <p class="flex items-center"><img class="pr-2" src="/asset/location-footer.svg" alt="">We have built our reputation as true local area experts.</p>
+              </div>
+              <p class="text-white text-[20px] font-medium pt-[24px]">Newsletter</p>
+              <div class="flex items-center">
+                <input placeholder="input Your Email" class="w-[351px] ps-3 h-[42px] text-[#828282] font-Poppins text-base font-normal bg-white mt-3"></input>
+                <button class="w-[88px] h-[42px] bg-[#054C73] mt-[12px] flex justify-center items-center text-base text-white font-medium">Send</button>
+              </div>
+          </div>
+
+          <div class="xl:ps-[144px]">
+              <h1 class="text-white font-Poppins text-[20px] font-semibold pt-5 xl:pt-0">Services</h1>
+              <div class="text-white text-base font-normal space-y-[16px] pt-[24px]">
+                  <p>About us</p>
+                  <p>Terms & Conditions</p>
+                  <p>Privacy & Policy</p>
+              </div>
+          </div>
+
+          <div class="xl:ps-[80px]">
+              <h1 class="text-white font-Poppins text-[20px] font-semibold pt-5 xl:pt-0">Community</h1>
+              <div class="text-white text-base font-normal space-y-[16px] pt-[24px]">
+                  <p>Find agents</p>
+                  <p>Lifestyle</p>
+                  <p>Legal notic</p>
+              </div>
+          </div>
+
+          <div class="">
+              <h1 class="text-white font-Poppins text-[20px] font-semibold pt-5 xl:pt-0">Social media</h1>
+              <div class="flex items-center pt-[24px] gap-[16px]">
+                 <img src="/asset/ig.svg" alt="">
+                 <img src="/asset/yt.svg" alt="">
+                 <img src="/asset/fb.svg" alt="">
+              </div>
+          </div>
+
+      </div>
+  </div>
+</footer>
 @endsection
