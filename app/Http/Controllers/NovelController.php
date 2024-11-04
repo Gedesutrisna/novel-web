@@ -66,9 +66,13 @@ class NovelController extends Controller
         ]);
         
         $novels = Novel::findorfail($id);
-        $filename = time() . '-' . Str::random(10) . '.' . $request->image->getClientOriginalExtension();
 
-        $data = $request->file('image') ? $request->image->move("uploads/novel", $filename) : $novels->image;
+        $data = $request->file('image');
+        $filename = $novels->image;
+        if($data){
+        $filename = time() . '-' . Str::random(10) . '.' . $request->image->getClientOriginalExtension();
+        $request->image->move("uploads/novel", $filename);
+        }
 
         $post =[
             'title' => $request['title'],
@@ -78,7 +82,7 @@ class NovelController extends Controller
             'year_published' => $request['year_published'],
             'admin_id' => Auth::guard('admin')->user()->id,
             'genre_id' => $request['genre_id'],
-            'image' =>  $data,
+            'image' =>  $filename,
         ];
        
         $novels->update($post);
