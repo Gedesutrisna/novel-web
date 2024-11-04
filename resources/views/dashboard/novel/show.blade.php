@@ -49,10 +49,10 @@
                             <td>{{ $eps->number }}</td>
                             <td>{{ $eps->release }}</td>
                             <td>
-                               <img style="height: 100px;" src="{{asset('storage/'. $eps->image)}} " alt="">
+                               <img style="height: 100px;" src="{{asset('uploads/eps/'. $eps->image)}} " alt="">
                             </td>
                             <td>
-                              <iframe class="file-preview" id="file-preview" src="{{ asset('storage/'.$eps->file_pdf) }}" frameborder="0"></iframe>
+                              <iframe class="file-preview" id="file-preview" src="{{ asset('uploads/eps/'.$eps->file_pdf) }}" frameborder="0"></iframe>
 
                             </td>
                             
