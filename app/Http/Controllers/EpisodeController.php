@@ -22,9 +22,8 @@ class EpisodeController extends Controller
         ]);
         // dd($request);
         $request['admin_id'] = Auth::guard('admin')->user()->id;
-        $eps = Episode::create($request->all());
-      
-
+        
+        
         if($request->file('image')){
             
             $filename = time() . '-' . Str::random(10) . '.' . $request->image->getClientOriginalExtension();
@@ -39,7 +38,8 @@ class EpisodeController extends Controller
             $request->file_pdf->move("uploads/eps", $filename);
             $valdatedData['file_pdf'] = $filename;
         }
-
+        
+        $eps = Episode::create($request->all());
     
 
         return back()->with('success', 'Data Berhasil Ditambahkan');
@@ -61,9 +61,9 @@ class EpisodeController extends Controller
         $filename = time() . '-' . Str::random(10) . '.' . $request->image->getClientOriginalExtension();
         $request->image->move("uploads/eps", $filename);
         }
-        $data = $request->file('file_pdf');
+        $dataPDF = $request->file('file_pdf');
         $filenamePDF = $eps->file_pdf;
-        if($data){
+        if($dataPDF){
         $filenamePDF = time() . '-' . Str::random(10) . '.' . $request->file_pdf->getClientOriginalExtension();
         $request->file_pdf->move("uploads/eps", $filenamePDF);
         }
