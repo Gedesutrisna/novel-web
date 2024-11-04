@@ -55,28 +55,24 @@ class EpisodeController extends Controller
     public function update(Request $request, $id)
     {
         $eps = Episode::findorfail($id);
-        $request['image'] = $eps->image;
-        if($request->file('image')){
-            
-            $filename = time() . '-' . Str::random(10) . '.' . $request->image->getClientOriginalExtension();
-            
-            $request->image->move("uploads/novel", $filename);
-            $request['image'] = $filename;
+        $data = $request->file('image');
+        $filename = $eps->image;
+        if($data){
+        $filename = time() . '-' . Str::random(10) . '.' . $request->image->getClientOriginalExtension();
+        $request->image->move("uploads/eps", $filename);
         }
-        $request['file_pdf'] = $eps->file_pdf;
-        if($request->file('file_pdf')){
-            
-            $filename = time() . '-' . Str::random(10) . '.' . $request->file_pdf->getClientOriginalExtension();
-            
-            $request->file_pdf->move("uploads/novel", $filename);
-            $request['file_pdf'] = $filename;
+        $data = $request->file('file_pdf');
+        $filenamePDF = $eps->file_pdf;
+        if($data){
+        $filenamePDF = time() . '-' . Str::random(10) . '.' . $request->file_pdf->getClientOriginalExtension();
+        $request->file_pdf->move("uploads/eps", $filenamePDF);
         }
         $post =[
             'name' => $request['name'],
             'number' => $request['number'],
             'admin_id' => Auth::guard('admin')->user()->id,
-            'file_pdf' => $request['file_pdf'],
-            'image' => $request['image'],
+            'file_pdf' => $filenamePDF,
+            'image' => $filename,
         ];
         
       
