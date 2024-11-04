@@ -46,7 +46,7 @@
                             
                             <td>{{ $novel->genre->name }}</td>
                             <td>
-                                  <img style="height: 50px;" src=" {{asset('storage/'. $novel->image)}} " alt="">
+                                  <img style="height: 50px;" src=" {{asset('uploads/novel/'. $novel->image)}} " alt="">
                             </td>
                             <td>{{ $novel->creator }}</td>
                             <td>{{ $novel->year_published }}</td>
@@ -135,7 +135,7 @@
               <label for="image" class="form-label">Image</label>
               <input type="file" class="form-control mb-3 @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage()" value="{{ old('image',$novel->image) }}">
               @if($novel->image)
-              <img class="img-preview" style="height: 200px;" src="{{asset('storage/'. $novel->image)}} " alt="">
+              <img class="img-preview" style="height: 200px;" src="{{asset('uploads/novel/'. $novel->image)}} " alt="">
               @else
               <img class="img-preview" src="" style="height: 200px;" />
               @endif
